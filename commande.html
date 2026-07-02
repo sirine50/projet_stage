@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <body>
+          <div class="sidebar">
+        <div class="sidebar-brand">
+            <span><i class="fa-solid fa-cubes"></i> ERP Pro</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></a></li>
+            <li><a href="#"><i class="fa-solid fa-users"></i><span>Clients</span></a></li>
+            <li class="active"><a href="#"><i class="fa-solid fa-box-open"></i><span>Produits</span></a></li>
+            <li><a href="#"><i class="fa-solid fa-cart-shopping"></i><span>Commandes</span></a></li>
+            <li><a href="#"><i class="fa-solid fa-truck"></i><span>Livraisons</span></a></li>
+        </ul>
+    </div>
+
+    <!-- ================= Titre ================= -->
+
+    <div>
+        <h1>Gestion des Commandes</h1>
+    </div>
+
+    <hr>
+
+    <!-- ================= Statistiques ================= -->
+
+    <div>
+
+        <div>
+            <h3>Commandes Confirmées</h3>
+            <h2>15</h2>
+        </div>
+
+        <div>
+            <h3>Commandes En attente</h3>
+            <h2>6</h2>
+        </div>
+
+        <div>
+            <h3>Commandes Annulées</h3>
+            <h2>2</h2>
+        </div>
+
+        <div>
+            <h3>Livraisons</h3>
+            <h2>10</h2>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- ================= Formulaire ================= -->
+
+    <h2>Ajouter une commande</h2>
+
+    <form>
+
+        <label>Client</label>
+        <select name="client">
+            <option>Choisir un client</option>
+        </select>
+
+        <label>Produit</label>
+        <select name="produit">
+            <option>Choisir un produit</option>
+        </select>
+
+        <label>Quantité</label>
+        <input type="number" name="quantite">
+
+        <label>Délai</label>
+        <input type="text" name="delai">
+
+        <label>Date de livraison</label>
+        <input type="date" name="date_livraison">
+
+        <label>Statut</label>
+        <select name="statut">
+            <option>En attente</option>
+            <option>Confirmée</option>
+            <option>Annulée</option>
+        </select>
+
+        <button type="submit">Ajouter</button>
+        <button type="reset">Annuler</button>
+
+    </form>
+
+    <hr>
+
+    <!-- ================= Tableau ================= -->
+
+    <h2>Liste des Commandes</h2>
+
+    <table border="1" cellpadding="8">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Client</th>
+                <th>Produit</th>
+                <th>Quantité</th>
+                <th>Délai</th>
+                <th>Date Livraison</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>1</td>
+                <td>Ahmed</td>
+                <td>Ordinateur</td>
+                <td>5</td>
+                <td>7 jours</td>
+                <td>10/07/2026</td>
+                <td>Confirmée</td>
+                <td>
+                    <button>Modifier</button>
+                    <button>Supprimer</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>Sara</td>
+                <td>Imprimante</td>
+                <td>2</td>
+                <td>3 jours</td>
+                <td>08/07/2026</td>
+                <td>En attente</td>
+                <td>
+                    <button>Modifier</button>
+                    <button>Supprimer</button>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</body>
+    
+</body>
+</html>
