@@ -11,7 +11,7 @@
 <body>
     <div class="sidebar">
         <div class="sidebar-brand">
-            <i class="fa-solid fa-cubes"></i>
+            <iclass="fa-solid fa-cubes"></i>
             <span> PalmFox</span>
         </div>
         <hr>
