@@ -25,67 +25,10 @@ body{
 
 
 
-.sidebar{
-    width:260px;
-    background:var(--sidebar-bg);
-    color:#94a3b8;
-    display:flex;
-    flex-direction:column;
-    padding:20px 0;
-    position:fixed;
-    left:0;
-    top:0;
-    bottom:0;
-}
-
-.sidebar-brand{
-    color:#fff;
-    font-size:22px;
-    font-weight:bold;
-    padding:10px 25px;
-    margin-bottom:30px;
-}
-
-.sidebar-brand span{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.sidebar-menu{
-    list-style:none;
-}
-
-.sidebar-menu li{
-    margin:5px 0;
-}
-
-.sidebar-menu li a{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    padding:15px 25px;
-    color:#94a3b8;
-    text-decoration:none;
-    transition:.3s;
-}
-
-.sidebar-menu li a:hover{
-    background:#1e293b;
-    color:#fff;
-}
-
-.sidebar-menu li.active a{
-    background:var(--sidebar-active);
-    color:#fff;
-    border-radius:0 25px 25px 0;
-    margin-right:15px;
-}
-
 
 
 .main{
-    margin-left:260px;
+    margin: 5px auto;
     width:calc(100% - 260px);
     padding:40px;
 }

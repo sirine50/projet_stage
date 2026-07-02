@@ -15,7 +15,7 @@
         </div>
         <ul class="sidebar-menu">
             <li><a href="#"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></a></li>
-            <li><a href="#"><i class="fa-solid fa-users"></i><span>Clients</span></a></li>
+            <li><a href="clients.html"><i class="fa-solid fa-users"></i><span>Clients</span></a></li>
             <li><a href="produits.php"><i class="fa-solid fa-box-open"></i><span>Produits</span></a></li>
             <li><a href="commande.html"><i class="fa-solid fa-cart-shopping"></i><span>Commandes</span></a></li>
             <li class="active"><a href="#"><i class="fa-solid fa-truck"></i><span>Livraisons</span></a></li>
