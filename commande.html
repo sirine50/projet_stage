@@ -77,9 +77,16 @@
 
     <div class="main-content">
 
-        <div class="page-title">
-            <h1>Gestion des Commandes</h1>
-            <p>Suivi des commandes, livraisons et stock.</p>
+        <div class="page-header">
+            <div class="page-title">
+                <h1>Gestion des Commandes</h1>
+                <p>Suivi des commandes, livraisons et stock.</p>
+            </div>
+
+            <button type="button" class="btn-open-form" id="openFormBtn">
+                <i class="fa-solid fa-plus"></i>
+                Ajouter une Commande
+            </button>
         </div>
 
         <!-- ================= Statistiques ================= -->
@@ -114,15 +121,6 @@
                 <p>Commandes livrées</p>
             </div>
 
-        </div>
-
-        <!-- ================= Bouton ouverture formulaire ================= -->
-
-        <div class="add-btn-wrapper">
-            <button type="button" class="btn-open-form" id="openFormBtn">
-                <i class="fa-solid fa-plus"></i>
-                Ajouter une Commande
-            </button>
         </div>
 
         <!-- ================= Formulaire (modal) ================= -->
@@ -186,14 +184,12 @@
 
                     <div class="buttons">
 
-                        <button type="submit" class="btn-add">
-                            <i class="fa-solid fa-plus"></i>
-                            Ajouter
+                        <button type="reset" class="btn-reset">
+                            Annuler
                         </button>
 
-                        <button type="reset" class="btn-reset">
-                            <i class="fa-solid fa-rotate-left"></i>
-                            Annuler
+                        <button type="submit" class="btn-add">
+                            Enregistrer la Commande
                         </button>
 
                     </div>
