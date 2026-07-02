@@ -1,7 +1,7 @@
 :root {
             --bg-main: #f8fafc;
-            --sidebar-bg: #0f172a;
-            --sidebar-active: #2563eb;
+            --sidebar-bg: black;
+            --sidebar-active: #543c28;
             --text-dark: #1e293b;
             --text-light: #64748b;
             --white: #ffffff;
@@ -46,7 +46,11 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            margin-bottom: 10px;
         }
 
         .sidebar-menu {
@@ -59,22 +63,23 @@
             align-items: center;
             gap: 15px;
             padding: 14px 25px;
-            color: #94a3b8;
+            color: #b0b7c2;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s;
         }
 
         .sidebar-menu li a:hover {
-            background-color: #1e293b;
+            background-color: #c99372;
             color: var(--white);
+            border-left: 4px solid white;
         }
 
         .sidebar-menu li.active a {
             background-color: var(--sidebar-active);
             color: var(--white);
-            border-radius: 0 25px 25px 0;
-            margin-right: 15px;
+            border: none;
+            
         }
 
         /* --- ZONE DE CONTENU PRINCIPAL --- */
@@ -113,6 +118,7 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            margin-right: 5px;
         }
 
         /* --- CONTENEUR DE LA PAGE --- */
