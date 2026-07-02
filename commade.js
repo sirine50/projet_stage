@@ -1,263 +1,268 @@
-// =========================================================
-// Gestion des Commandes — commande.js
-// =========================================================
+/* ===========================================================
+   commande.js — gestion des commandes (front-end, données mock)
+   À remplacer plus tard par des appels fetch() vers commande.php
+   quand le backend PHP/MySQL sera branché.
+   =========================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+// ---------- DONNÉES MOCK (à remplacer par la BDD) ----------
+let clients = [
+    { id: 1, nom: "Ahmed" },
+    { id: 2, nom: "Sara" },
+    { id: 3, nom: "Youssef" }
+];
 
-    const form = document.querySelector(".form-container form");
-    const tableBody = document.querySelector(".table-container tbody");
-    const searchInput = document.querySelector(".search");
-    const resetBtn = document.querySelector(".btn-reset");
-    const addBtn = document.querySelector(".btn-add");
+let produits = [
+    { id: 1, nom: "Ordinateur", stock: 12 },
+    { id: 2, nom: "Imprimante", stock: 5 },
+    { id: 3, nom: "Écran", stock: 0 }
+];
 
-    const overlay = document.getElementById("formOverlay");
-    const openFormBtn = document.getElementById("openFormBtn");
-    const closeFormBtn = document.getElementById("closeFormBtn");
+let commandes = [
+    { id: "CMD001", clientId: 1, produitId: 1, quantite: 5, delai: "7 jours", dateLivraison: "2026-07-10", statut: "Confirmée" },
+    { id: "CMD002", clientId: 2, produitId: 2, quantite: 2, delai: "3 jours", dateLivraison: "2026-07-08", statut: "En attente" }
+];
 
-    // ---------------------------------------------------
-    // Ouvrir / fermer le modal du formulaire
-    // ---------------------------------------------------
-    function openModal() {
-        overlay.classList.add("active");
-        document.body.style.overflow = "hidden";
+let nextCmdNumber = commandes.length + 1;
+let editingId = null; // id de la commande en cours de modification, null = ajout
+
+// ---------- HELPERS ----------
+const $ = (sel) => document.querySelector(sel);
+
+function getClientName(clientId) {
+    const c = clients.find(c => c.id === clientId);
+    return c ? c.nom : "—";
+}
+
+function getProduit(produitId) {
+    return produits.find(p => p.id === produitId);
+}
+
+function badgeClass(statut) {
+    switch (statut) {
+        case "Confirmée": return "badge-confirmee";
+        case "En attente": return "badge-attente";
+        case "Annulée": return "badge-annulee";
+        case "Livrée": return "badge-livree";
+        default: return "";
     }
+}
 
-    function closeModal() {
-        overlay.classList.remove("active");
-        document.body.style.overflow = "";
-        cancelEdit();
-    }
+// ---------- RENDU DES SELECTS DU FORMULAIRE ----------
+function fillSelects() {
+    const clientSelect = $("#clientSelect");
+    const produitSelect = $("#produitSelect");
 
-    openFormBtn.addEventListener("click", openModal);
-    closeFormBtn.addEventListener("click", closeModal);
+    clientSelect.innerHTML = '<option value="">-- Choisir un client --</option>' +
+        clients.map(c => `<option value="${c.id}">${c.nom}</option>`).join("");
 
-    // Fermer en cliquant sur le fond sombre (pas sur le formulaire lui-même)
-    overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) closeModal();
+    produitSelect.innerHTML = '<option value="">-- Choisir un produit --</option>' +
+        produits.map(p => `<option value="${p.id}">${p.nom} (stock: ${p.stock})</option>`).join("");
+}
+
+function updateStockInfo() {
+    const produitId = parseInt($("#produitSelect").value, 10);
+    const info = $("#stockInfo");
+    const produit = getProduit(produitId);
+
+    if (!produit) { info.textContent = ""; return; }
+
+    info.textContent = produit.stock > 0
+        ? `Stock disponible : ${produit.stock} unité(s)`
+        : `Rupture de stock — commande impossible tant qu'il n'est pas réapprovisionné`;
+    info.style.color = produit.stock > 0 ? "#8a94a6" : "#c62828";
+}
+
+// ---------- RENDU DU TABLEAU ----------
+function renderTable(filter = "") {
+    const tbody = $("#commandesTableBody");
+    const term = filter.trim().toLowerCase();
+
+    const rows = commandes.filter(cmd => {
+        if (!term) return true;
+        const produit = getProduit(cmd.produitId);
+        return cmd.id.toLowerCase().includes(term)
+            || getClientName(cmd.clientId).toLowerCase().includes(term)
+            || (produit && produit.nom.toLowerCase().includes(term));
     });
 
-    // Fermer avec la touche Échap
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && overlay.classList.contains("active")) {
-            closeModal();
-        }
-    });
-
-    const statusLabels = {
-        attente: "En attente",
-        confirme: "Confirmée",
-        annule: "Annulée"
-    };
-
-    let commandeCounter = tableBody.querySelectorAll("tr").length;
-    let editingRow = null; // ligne en cours de modification (null = mode ajout)
-
-    // ---------------------------------------------------
-    // Génère un nouvel ID de commande (CMD004, CMD005...)
-    // ---------------------------------------------------
-    function generateId() {
-        commandeCounter++;
-        return "CMD" + String(commandeCounter).padStart(3, "0");
+    if (rows.length === 0) {
+        tbody.innerHTML = `<tr class="empty-row"><td colspan="8">Aucune commande trouvée.</td></tr>`;
+        return;
     }
 
-    // ---------------------------------------------------
-    // Formate une date "yyyy-mm-dd" -> "dd/mm/yyyy"
-    // ---------------------------------------------------
-    function formatDate(isoDate) {
-        if (!isoDate) return "-";
-        const [year, month, day] = isoDate.split("-");
-        return `${day}/${month}/${year}`;
+    tbody.innerHTML = rows.map(cmd => {
+        const produit = getProduit(cmd.produitId);
+        return `
+            <tr data-id="${cmd.id}">
+                <td>${cmd.id}</td>
+                <td>${getClientName(cmd.clientId)}</td>
+                <td>${produit ? produit.nom : "—"}</td>
+                <td>${cmd.quantite}</td>
+                <td>${cmd.delai}</td>
+                <td>${formatDate(cmd.dateLivraison)}</td>
+                <td><span class="badge ${badgeClass(cmd.statut)}">${cmd.statut}</span></td>
+                <td>
+                    <button class="action-btn edit" data-action="edit" data-id="${cmd.id}"><i class="fa-solid fa-pen"></i></button>
+                    <button class="action-btn delete" data-action="delete" data-id="${cmd.id}"><i class="fa-solid fa-trash"></i></button>
+                </td>
+            </tr>`;
+    }).join("");
+}
+
+function formatDate(isoDate) {
+    if (!isoDate) return "—";
+    const [y, m, d] = isoDate.split("-");
+    return `${d}/${m}/${y}`;
+}
+
+// ---------- STATS ----------
+function renderStats() {
+    $("#statConfirmees").textContent = commandes.filter(c => c.statut === "Confirmée").length;
+    $("#statAttente").textContent = commandes.filter(c => c.statut === "En attente").length;
+    $("#statAnnulees").textContent = commandes.filter(c => c.statut === "Annulée").length;
+    $("#statLivrees").textContent = commandes.filter(c => c.statut === "Livrée").length;
+}
+
+// ---------- MODAL ----------
+function openModal(mode, cmd = null) {
+    const modal = $("#commandeModal");
+    const form = $("#commandeForm");
+    form.reset();
+    $("#formError").textContent = "";
+
+    if (mode === "edit" && cmd) {
+        editingId = cmd.id;
+        $("#modalTitle").textContent = `Modifier la commande ${cmd.id}`;
+        $("#clientSelect").value = cmd.clientId;
+        $("#produitSelect").value = cmd.produitId;
+        $("#quantiteInput").value = cmd.quantite;
+        $("#delaiInput").value = cmd.delai;
+        $("#dateLivraisonInput").value = cmd.dateLivraison;
+        $("#statutSelect").value = cmd.statut;
+    } else {
+        editingId = null;
+        $("#modalTitle").textContent = "Ajouter une Nouvelle Commande";
     }
 
-    // ---------------------------------------------------
-    // Met à jour les cartes de statistiques
-    // ---------------------------------------------------
-    function updateStats() {
-        const rows = tableBody.querySelectorAll("tr");
-        const counts = { confirme: 0, attente: 0, annule: 0, livree: 0 };
+    updateStockInfo();
+    modal.classList.add("open");
+}
 
-        rows.forEach(row => {
-            const statusSpan = row.querySelector(".status");
-            if (!statusSpan) return;
-            if (statusSpan.classList.contains("confirme")) counts.confirme++;
-            if (statusSpan.classList.contains("attente")) counts.attente++;
-            if (statusSpan.classList.contains("annule")) counts.annule++;
-        });
+function closeModal() {
+    $("#commandeModal").classList.remove("open");
+    editingId = null;
+}
 
-        const cards = document.querySelectorAll(".stats .card h2");
-        // Ordre des cartes dans le HTML : Confirmées, En attente, Annulées, Livrées
-        setCardValue(cards[0], counts.confirme);
-        setCardValue(cards[1], counts.attente);
-        setCardValue(cards[2], counts.annule);
-        // Le total "Livrées" reste géré manuellement (pas de statut "livrée" dans le formulaire)
+// ---------- GESTION AUTOMATIQUE DU STOCK ----------
+// Remet en stock la quantité d'une commande annulée / supprimée
+function restockIfNeeded(cmd) {
+    if (cmd.statut !== "Annulée") {
+        const produit = getProduit(cmd.produitId);
+        if (produit) produit.stock += cmd.quantite;
+    }
+}
+
+// ---------- SOUMISSION DU FORMULAIRE ----------
+function handleSubmit(e) {
+    e.preventDefault();
+
+    const clientId = parseInt($("#clientSelect").value, 10);
+    const produitId = parseInt($("#produitSelect").value, 10);
+    const quantite = parseInt($("#quantiteInput").value, 10);
+    const delai = $("#delaiInput").value.trim();
+    const dateLivraison = $("#dateLivraisonInput").value;
+    const statut = $("#statutSelect").value;
+    const errorEl = $("#formError");
+
+    const produit = getProduit(produitId);
+    if (!produit) { errorEl.textContent = "Veuillez choisir un produit."; return; }
+
+    // Si on modifie une commande existante, on remet d'abord son ancienne
+    // quantité en stock (sauf si elle était déjà annulée) avant de revérifier.
+    const existing = editingId ? commandes.find(c => c.id === editingId) : null;
+    let stockDisponible = produit.stock;
+    if (existing && existing.produitId === produitId && existing.statut !== "Annulée") {
+        stockDisponible += existing.quantite;
     }
 
-    // ---------------------------------------------------
-    // Met à jour un chiffre de carte avec une petite animation
-    // ---------------------------------------------------
-    function setCardValue(cardEl, value) {
-        if (!cardEl) return;
-        if (cardEl.textContent == value) return; // pas de changement, pas d'animation
-
-        cardEl.textContent = value;
-        cardEl.classList.remove("pulse");
-        void cardEl.offsetWidth; // force le redémarrage de l'animation
-        cardEl.classList.add("pulse");
+    // ---- Règle métier : stock à 0 ou quantité demandée > stock disponible ----
+    if (statut !== "Annulée" && (produit.stock === 0 || quantite > stockDisponible)) {
+        errorEl.textContent = `Stock insuffisant : ${stockDisponible} unité(s) disponible(s) pour "${produit.nom}".`;
+        return;
     }
 
-    // ---------------------------------------------------
-    // Attache les écouteurs edit/delete à une ligne
-    // ---------------------------------------------------
-    function attachRowEvents(row) {
-        const editBtn = row.querySelector(".edit");
-        const deleteBtn = row.querySelector(".delete");
+    if (editingId) {
+        // ---- MODIFICATION ----
+        const cmd = commandes.find(c => c.id === editingId);
 
-        editBtn.addEventListener("click", () => startEdit(row));
-        deleteBtn.addEventListener("click", () => deleteRow(row));
-    }
-
-    // ---------------------------------------------------
-    // Supprime une ligne
-    // ---------------------------------------------------
-    function deleteRow(row) {
-        const id = row.children[0].textContent;
-        const confirmed = confirm(`Supprimer la commande ${id} ?`);
-        if (!confirmed) return;
-
-        row.remove();
-        updateStats();
-
-        if (editingRow === row) {
-            cancelEdit();
-        }
-    }
-
-    // ---------------------------------------------------
-    // Passe le formulaire en mode édition
-    // ---------------------------------------------------
-    function startEdit(row) {
-        editingRow = row;
-
-        const cells = row.children;
-        form.client.value = cells[1].textContent;
-        form.produit.value = cells[2].textContent;
-        form.quantite.value = cells[3].textContent;
-        form.delai.value = cells[4].textContent;
-
-        const statusSpan = cells[6].querySelector(".status");
-        const statusKey = ["confirme", "attente", "annule"]
-            .find(key => statusSpan.classList.contains(key));
-        form.statut.value = statusKey || "attente";
-
-        // Date affichée en dd/mm/yyyy -> input date attend yyyy-mm-dd
-        const dateText = cells[5].textContent.trim();
-        if (dateText && dateText !== "-") {
-            const [day, month, year] = dateText.split("/");
-            form.date_livraison.value = `${year}-${month}-${day}`;
-        } else {
-            form.date_livraison.value = "";
+        // remettre l'ancienne quantité en stock avant d'appliquer la nouvelle
+        if (cmd.statut !== "Annulée") {
+            const oldProduit = getProduit(cmd.produitId);
+            if (oldProduit) oldProduit.stock += cmd.quantite;
         }
 
-        addBtn.innerHTML = '<i class="fa-solid fa-check"></i> Modifier';
-        openModal();
-        form.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
+        cmd.clientId = clientId;
+        cmd.produitId = produitId;
+        cmd.quantite = quantite;
+        cmd.delai = delai;
+        cmd.dateLivraison = dateLivraison;
+        cmd.statut = statut;
 
-    // ---------------------------------------------------
-    // Annule le mode édition
-    // ---------------------------------------------------
-    function cancelEdit() {
-        editingRow = null;
-        addBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Ajouter';
-        form.reset();
-    }
-
-    // ---------------------------------------------------
-    // Crée une nouvelle ligne <tr> à partir des données du formulaire
-    // ---------------------------------------------------
-    function buildRow(id, data) {
-        const row = document.createElement("tr");
-        row.style.animation = "none";
-        void row.offsetWidth;
-        row.style.animation = "";
-
-        row.innerHTML = `
-            <td>${id}</td>
-            <td>${data.client}</td>
-            <td>${data.produit}</td>
-            <td>${data.quantite}</td>
-            <td>${data.delai || "-"}</td>
-            <td>${formatDate(data.date_livraison)}</td>
-            <td><span class="status ${data.statut}">${statusLabels[data.statut]}</span></td>
-            <td>
-                <button class="edit"><i class="fa-solid fa-pen"></i></button>
-                <button class="delete"><i class="fa-solid fa-trash"></i></button>
-            </td>
-        `;
-
-        attachRowEvents(row);
-        return row;
-    }
-
-    // ---------------------------------------------------
-    // Soumission du formulaire (ajout ou modification)
-    // ---------------------------------------------------
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        if (!form.client.value || !form.produit.value || !form.quantite.value) {
-            alert("Merci de remplir les champs obligatoires (client, produit, quantité).");
-            return;
-        }
-
-        const data = {
-            client: form.client.value,
-            produit: form.produit.value,
-            quantite: form.quantite.value,
-            delai: form.delai.value,
-            date_livraison: form.date_livraison.value,
-            statut: form.statut.value
+        if (statut !== "Annulée") produit.stock -= quantite;
+    } else {
+        // ---- AJOUT ----
+        const newCmd = {
+            id: "CMD" + String(nextCmdNumber++).padStart(3, "0"),
+            clientId, produitId, quantite, delai, dateLivraison, statut
         };
+        commandes.push(newCmd);
+        if (statut !== "Annulée") produit.stock -= quantite;
+    }
 
-        if (editingRow) {
-            const id = editingRow.children[0].textContent;
-            const newRow = buildRow(id, data);
-            editingRow.replaceWith(newRow);
-            cancelEdit();
-        } else {
-            const id = generateId();
-            const newRow = buildRow(id, data);
-            tableBody.appendChild(newRow);
-            form.reset();
+    fillSelects(); // rafraîchit les stocks affichés dans les selects
+    renderTable($("#searchInput").value);
+    renderStats();
+    closeModal();
+}
+
+// ---------- SUPPRESSION / ÉDITION VIA LE TABLEAU ----------
+function handleTableClick(e) {
+    const btn = e.target.closest("button[data-action]");
+    if (!btn) return;
+
+    const id = btn.dataset.id;
+    const cmd = commandes.find(c => c.id === id);
+    if (!cmd) return;
+
+    if (btn.dataset.action === "edit") {
+        openModal("edit", cmd);
+    } else if (btn.dataset.action === "delete") {
+        if (confirm(`Supprimer la commande ${id} ? La quantité sera remise en stock si nécessaire.`)) {
+            restockIfNeeded(cmd);
+            commandes = commandes.filter(c => c.id !== id);
+            fillSelects();
+            renderTable($("#searchInput").value);
+            renderStats();
         }
+    }
+}
 
-        updateStats();
-        closeModal();
+// ---------- INITIALISATION ----------
+document.addEventListener("DOMContentLoaded", () => {
+    fillSelects();
+    renderTable();
+    renderStats();
+
+    $("#btnOpenAddCommande").addEventListener("click", () => openModal("add"));
+    $("#btnCloseModal").addEventListener("click", closeModal);
+    $("#btnCancelModal").addEventListener("click", closeModal);
+    $("#commandeModal").addEventListener("click", (e) => {
+        if (e.target.id === "commandeModal") closeModal();
     });
 
-    // ---------------------------------------------------
-    // Bouton "Annuler" du formulaire
-    // ---------------------------------------------------
-    resetBtn.addEventListener("click", () => {
-        cancelEdit();
-    });
+    $("#produitSelect").addEventListener("change", updateStockInfo);
+    $("#commandeForm").addEventListener("submit", handleSubmit);
+    $("#commandesTableBody").addEventListener("click", handleTableClick);
 
-    // ---------------------------------------------------
-    // Recherche en direct dans le tableau
-    // ---------------------------------------------------
-    searchInput.addEventListener("input", () => {
-        const term = searchInput.value.trim().toLowerCase();
-
-        tableBody.querySelectorAll("tr").forEach(row => {
-            const text = row.textContent.toLowerCase();
-            row.style.display = text.includes(term) ? "" : "none";
-        });
-    });
-
-    // ---------------------------------------------------
-    // Initialisation : brancher les lignes déjà présentes
-    // ---------------------------------------------------
-    tableBody.querySelectorAll("tr").forEach(attachRowEvents);
-    updateStats();
-
+    $("#searchInput").addEventListener("input", (e) => renderTable(e.target.value));
 });
