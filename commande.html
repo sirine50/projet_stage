@@ -1,154 +1,273 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gestion des Commandes</title>
+
+    <link rel="stylesheet" href="commande.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
+
 <body>
-    <body>
-          <div class="sidebar">
+
+    <!-- ================= Sidebar ================= -->
+
+    <div class="sidebar">
+
         <div class="sidebar-brand">
-            <span><i class="fa-solid fa-cubes"></i> ERP Pro</span>
+            <i class="fa-solid fa-cubes"></i>
+            <span>ERP Pro</span>
         </div>
+
         <ul class="sidebar-menu">
-            <li><a href="#"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></a></li>
-            <li><a href="#"><i class="fa-solid fa-users"></i><span>Clients</span></a></li>
-            <li class="active"><a href="#"><i class="fa-solid fa-box-open"></i><span>Produits</span></a></li>
-            <li><a href="#"><i class="fa-solid fa-cart-shopping"></i><span>Commandes</span></a></li>
-            <li><a href="#"><i class="fa-solid fa-truck"></i><span>Livraisons</span></a></li>
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="client.html">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Clients</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="produit.html">
+                    <i class="fa-solid fa-box-open"></i>
+                    <span>Produits</span>
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="commande.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Commandes</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="livraison.html">
+                    <i class="fa-solid fa-truck"></i>
+                    <span>Livraisons</span>
+                </a>
+            </li>
+
         </ul>
-    </div>
-
-    <!-- ================= Titre ================= -->
-
-    <div>
-        <h1>Gestion des Commandes</h1>
-    </div>
-
-    <hr>
-
-    <!-- ================= Statistiques ================= -->
-
-    <div>
-
-        <div>
-            <h3>Commandes Confirmées</h3>
-            <h2>15</h2>
-        </div>
-
-        <div>
-            <h3>Commandes En attente</h3>
-            <h2>6</h2>
-        </div>
-
-        <div>
-            <h3>Commandes Annulées</h3>
-            <h2>2</h2>
-        </div>
-
-        <div>
-            <h3>Livraisons</h3>
-            <h2>10</h2>
-        </div>
 
     </div>
 
-    <hr>
+    <!-- ================= Contenu ================= -->
 
-    <!-- ================= Formulaire ================= -->
+    <div class="main-content">
 
-    <h2>Ajouter une commande</h2>
+        <!-- Titre -->
 
-    <form>
+        <div class="page-title">
+            <h1>Gestion des Commandes</h1>
+        </div>
 
-        <label>Client</label>
-        <select name="client">
-            <option>Choisir un client</option>
-        </select>
+        <!-- Statistiques -->
 
-        <label>Produit</label>
-        <select name="produit">
-            <option>Choisir un produit</option>
-        </select>
+        <div class="stats">
 
-        <label>Quantité</label>
-        <input type="number" name="quantite">
+            <div class="card">
+                <i class="fa-solid fa-circle-check"></i>
+                <h3>Confirmées</h3>
+                <h2>15</h2>
+            </div>
 
-        <label>Délai</label>
-        <input type="text" name="delai">
+            <div class="card">
+                <i class="fa-solid fa-clock"></i>
+                <h3>En attente</h3>
+                <h2>6</h2>
+            </div>
 
-        <label>Date de livraison</label>
-        <input type="date" name="date_livraison">
+            <div class="card">
+                <i class="fa-solid fa-ban"></i>
+                <h3>Annulées</h3>
+                <h2>2</h2>
+            </div>
 
-        <label>Statut</label>
-        <select name="statut">
-            <option>En attente</option>
-            <option>Confirmée</option>
-            <option>Annulée</option>
-        </select>
+            <div class="card">
+                <i class="fa-solid fa-truck"></i>
+                <h3>Livrées</h3>
+                <h2>10</h2>
+            </div>
 
-        <button type="submit">Ajouter</button>
-        <button type="reset">Annuler</button>
+        </div>
 
-    </form>
+        <!-- Formulaire -->
 
-    <hr>
+        <div class="form-container">
 
-    <!-- ================= Tableau ================= -->
+            <h2>Ajouter une Commande</h2>
 
-    <h2>Liste des Commandes</h2>
+            <form>
 
-    <table border="1" cellpadding="8">
+                <div>
+                    <label>Client</label>
+                    <select>
+                        <option>Choisir un client</option>
+                    </select>
+                </div>
 
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Client</th>
-                <th>Produit</th>
-                <th>Quantité</th>
-                <th>Délai</th>
-                <th>Date Livraison</th>
-                <th>Statut</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
+                <div>
+                    <label>Produit</label>
+                    <select>
+                        <option>Choisir un produit</option>
+                    </select>
+                </div>
 
-        <tbody>
+                <div>
+                    <label>Quantité</label>
+                    <input type="number">
+                </div>
 
-            <tr>
-                <td>1</td>
-                <td>Ahmed</td>
-                <td>Ordinateur</td>
-                <td>5</td>
-                <td>7 jours</td>
-                <td>10/07/2026</td>
-                <td>Confirmée</td>
-                <td>
-                    <button>Modifier</button>
-                    <button>Supprimer</button>
-                </td>
-            </tr>
+                <div>
+                    <label>Délai</label>
+                    <input type="text">
+                </div>
 
-            <tr>
-                <td>2</td>
-                <td>Sara</td>
-                <td>Imprimante</td>
-                <td>2</td>
-                <td>3 jours</td>
-                <td>08/07/2026</td>
-                <td>En attente</td>
-                <td>
-                    <button>Modifier</button>
-                    <button>Supprimer</button>
-                </td>
-            </tr>
+                <div>
+                    <label>Date Livraison</label>
+                    <input type="date">
+                </div>
 
-        </tbody>
+                <div>
+                    <label>Statut</label>
+                    <select>
+                        <option>En attente</option>
+                        <option>Confirmée</option>
+                        <option>Annulée</option>
+                    </select>
+                </div>
 
-    </table>
+                <div class="buttons">
+                    <button type="submit" class="btn-add">
+                        <i class="fa-solid fa-plus"></i> Ajouter
+                    </button>
 
-</body>
-    
+                    <button type="reset" class="btn-reset">
+                        <i class="fa-solid fa-rotate-left"></i> Annuler
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <!-- Tableau -->
+
+        <div class="table-container">
+
+            <h2>Liste des Commandes</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Client</th>
+                        <th>Produit</th>
+                        <th>Quantité</th>
+                        <th>Délai</th>
+                        <th>Date Livraison</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>1</td>
+                        <td>Ahmed</td>
+                        <td>Ordinateur</td>
+                        <td>5</td>
+                        <td>7 jours</td>
+                        <td>10/07/2026</td>
+                        <td>Confirmée</td>
+
+                        <td>
+
+                            <button class="edit">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+
+                            <button class="delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>2</td>
+                        <td>Sara</td>
+                        <td>Imprimante</td>
+                        <td>2</td>
+                        <td>3 jours</td>
+                        <td>08/07/2026</td>
+                        <td>En attente</td>
+
+                        <td>
+
+                            <button class="edit">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+
+                            <button class="delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>3</td>
+                        <td>Ali</td>
+                        <td>Écran</td>
+                        <td>4</td>
+                        <td>5 jours</td>
+                        <td>12/07/2026</td>
+                        <td>Annulée</td>
+
+                        <td>
+
+                            <button class="edit">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+
+                            <button class="delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
 </body>
 </html>
