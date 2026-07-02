@@ -6,11 +6,13 @@
     <title>ERP Pro - Gestion des Produits</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="produits.css">
+    <link rel="stylesheet" href="main_components.css">
 </head>
 <body>
     <div class="sidebar">
         <div class="sidebar-brand">
-            <span><i class="fa-solid fa-cubes"></i> PalmFox</span>
+            <i class="fa-solid fa-cubes"></i>
+            <span> PalmFox</span>
         </div>
         <hr>
         <ul class="sidebar-menu">
@@ -29,7 +31,7 @@
         <div class="header">
             <div class="user-profile">
                 <div class="user-avatar">AM</div>
-                
+                <h5>Admin</h5>
             </div>
         </div>
 
