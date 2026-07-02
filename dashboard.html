@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de bord - ERP Pro</title>
     <link rel="stylesheet" href="clients.css">
+    <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
@@ -29,7 +30,7 @@
         <div class="page-header">
             <div>
                 <h1>Tableau de bord</h1>
-                <p id="dashboardDate">Mardi 1 juillet 2026</p>
+                <p id="dashboardDate"></p>
             </div>
         </div>
 
@@ -38,56 +39,56 @@
             <div class="card-kpi">
                 <div class="card-kpi-info">
                     <span class="card-kpi-title">Clients Actifs</span>
-                    <h2 class="card-kpi-value" id="valClients">47</h2>
-                    <span class="card-kpi-sub">Total enregistrés</span>
+                    <h2 class="card-kpi-value" id="valClients"></h2>
+                    <span class="card-kpi-sub" id="subClients"></span>
                 </div>
                 <div class="card-kpi-side">
                     <div class="card-kpi-icon icon-blue">
                         <i class="fa-solid fa-users"></i>
                     </div>
-                    <span class="trend-badge trend-up"><i class="fa-solid fa-arrow-trend-up"></i> 8%</span>
+                    <span class="trend-badge" id="trendClients"></span>
                 </div>
             </div>
 
             <div class="card-kpi">
                 <div class="card-kpi-info">
                     <span class="card-kpi-title">Commandes</span>
-                    <h2 class="card-kpi-value" id="valCommandes">89</h2>
-                    <span class="card-kpi-sub">Ce mois-ci</span>
+                    <h2 class="card-kpi-value" id="valCommandes"></h2>
+                    <span class="card-kpi-sub" id="subCommandes"></span>
                 </div>
                 <div class="card-kpi-side">
                     <div class="card-kpi-icon icon-purple">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
-                    <span class="trend-badge trend-up"><i class="fa-solid fa-arrow-trend-up"></i> 12%</span>
+                    <span class="trend-badge" id="trendCommandes"></span>
                 </div>
             </div>
 
             <div class="card-kpi">
                 <div class="card-kpi-info">
                     <span class="card-kpi-title">Livraisons</span>
-                    <h2 class="card-kpi-value" id="valLivraisons">34</h2>
-                    <span class="card-kpi-sub">En cours</span>
+                    <h2 class="card-kpi-value" id="valLivraisons"></h2>
+                    <span class="card-kpi-sub" id="subLivraisons"></span>
                 </div>
                 <div class="card-kpi-side">
                     <div class="card-kpi-icon icon-orange">
                         <i class="fa-solid fa-truck"></i>
                     </div>
-                    <span class="trend-badge trend-down"><i class="fa-solid fa-arrow-trend-down"></i> 3%</span>
+                    <span class="trend-badge" id="trendLivraisons"></span>
                 </div>
             </div>
 
             <div class="card-kpi">
                 <div class="card-kpi-info">
                     <span class="card-kpi-title">Valeur Stock</span>
-                    <h2 class="card-kpi-value font-mono" id="valStock">2.4M DA</h2>
-                    <span class="card-kpi-sub">218 références</span>
+                    <h2 class="card-kpi-value font-mono" id="valStock"></h2>
+                    <span class="card-kpi-sub" id="subStock"></span>
                 </div>
                 <div class="card-kpi-side">
                     <div class="card-kpi-icon icon-green">
                         <i class="fa-solid fa-box"></i>
                     </div>
-                    <span class="trend-badge trend-up"><i class="fa-solid fa-arrow-trend-up"></i> 5%</span>
+                    <span class="trend-badge" id="trendStock"></span>
                 </div>
             </div>
 
@@ -118,7 +119,5 @@
 
     </main>
 
-    <script src="dashboard.js"></script>
 </body>
-
 </html>
