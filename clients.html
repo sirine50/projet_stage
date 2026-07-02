@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Clients</title>
+
+    <link rel="stylesheet" href="clients.css">
+
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <span><i class="fa-solid fa-cubes"></i> ERP Pro</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></a></li>
+            <li class="active"><a href="#"><i class="fa-solid fa-users"></i><span>Clients</span></a></li>
+            <li><a href="#"><i class="fa-solid fa-box-open"></i><span>Produits</span></a></li>
+            <li><a href="#"><i class="fa-solid fa-cart-shopping"></i><span>Commandes</span></a></li>
+            <li><a href="#"><i class="fa-solid fa-truck"></i><span>Livraisons</span></a></li>
+        </ul>
+    </div>
+
+
+
+    <main class="main">
+
+        <div class="page-header">
+
+            <div>
+                <h1>Clients</h1>
+                <p>Consultez et gérez vos clients.</p>
+            </div>
+
+            <button class="btn-add" id="btnAddClient">
+                <i class="fa-solid fa-plus"></i>
+                Nouveau Client
+            </button>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Clients</h3>
+                <h2 id="clients" name="clients">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Actifs</h3>
+                <h2 id="actifs" name="actifs">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Inactifs</h3>
+                <h2 id="inactifs" name="inactifs">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Contacts</h3>
+                <h2 id="contacts" name="contacts">0</h2>
+            </div>
+
+        </div>
+
+
+        <div class="table-box">
+
+            <div class="table-header">
+                <h2>Liste des Clients</h2>
+            </div>
+
+            <div class="filters">
+                <input type="text" id="searchInput" placeholder="Rechercher un client...">
+                <button id="btnFilter" type="button">
+                    <i class="fa-solid fa-filter"></i>
+                    Filtrer
+                </button>
+            </div>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Téléphone</th>
+                        <th>Email</th>
+                        <th>Commentaire</th>
+                        <th>Mode de paiement</th>
+                        <th>Condition de paiement</th>
+                        <th>Contacts</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="clientsTableBody">
+                    <!-- Les lignes sont générées dynamiquement par clients.js -->
+                </tbody>
+
+            </table>
+
+            <p class="empty-state" id="emptyState">Aucun client pour le moment. Cliquez sur « Nouveau Client » pour en ajouter un.</p>
+
+        </div>
+
+    </main>
+
+    <div class="modal-overlay" id="clientModal">
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <h2 id="modalTitle">Ajouter un Client</h2>
+
+                <button type="button" class="close-btn" id="closeModal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+            <form id="clientForm">
+
+                <input type="hidden" id="clientId">
+
+                <div class="form-group">
+                    <label>Nom du client</label>
+                    <input type="text" id="nom" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Téléphone</label>
+                    <input type="text" id="telephone" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email">
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Commentaire</label>
+                    <textarea id="commentaire"></textarea>
+                </div>
+
+                <div class="form-group">
+
+                    <label>Mode de paiement</label>
+
+                    <select id="modePaiement">
+                        <option value="">Choisir</option>
+                        <option>Cash</option>
+                        <option>Virement</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Condition de paiement</label>
+
+                    <select id="conditionPaiement">
+                        <option value="">Choisir</option>
+                        <option>À la livraison</option>
+                        <option>30 jours</option>
+                        <option>60 jours</option>
+                    </select>
+
+                </div>
+
+                <div class="contacts-section">
+
+                    <div class="contacts-heading">
+                        <h3>Contacts</h3>
+                        <button type="button" class="btn-add-contact" id="btnAddContact">
+                            <i class="fa-solid fa-plus"></i> Ajouter un contact
+                        </button>
+                    </div>
+
+                    <div id="contactsContainer">
+                        <!-- Les blocs de contact sont générés dynamiquement -->
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn-cancel" id="cancelBtn">
+                        Annuler
+                    </button>
+
+                    <button type="submit" class="btn-save">
+                        Enregistrer
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+    <div class="modal-overlay" id="filterModal">
+
+    <div class="modal" style="max-width:500px;">
+
+        <div class="modal-header">
+            <h2>Filtrer les clients</h2>
+
+            <button class="close-btn" id="closeFilter">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="form-group">
+            <label>Mode de paiement</label>
+
+            <select id="filterPaiement">
+                <option value="">Tous</option>
+                <option value="Cash">Cash</option>
+                <option value="Virement">Virement</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Condition de paiement</label>
+
+            <select id="filterCondition">
+                <option value="">Toutes</option>
+                <option>À la livraison</option>
+                <option>30 jours</option>
+                <option>60 jours</option>
+            </select>
+        </div>
+
+        <div class="modal-footer">
+
+            <button class="btn-cancel" id="cancelFilter">
+                Annuler
+            </button>
+
+            <button class="btn-save" id="applyFilterBtn">
+                Appliquer
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <script src="clients.js"></script>
+</body>
+
+</html>
