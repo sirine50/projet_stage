@@ -12,6 +12,39 @@
     min-height: 100vh;
 }
 
+/* ---------- TOPBAR (profil admin) ---------- */
+.topbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #9a6633 0%, #1c1410 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-profile h5 {
+    margin: 0;
+    font-size: 14px;
+    color: #1e2432;
+    font-weight: 600;
+}
+
 /* ---------- HEADER ---------- */
 .page-header {
     display: flex;

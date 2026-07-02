@@ -3,75 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ERP Pro - Gestion des Produits</title>
+    <title>PalmFox - Gestion des Produits</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="sidebar_header.css">
     <link rel="stylesheet" href="produits.css">
-    <link rel="stylesheet" href="main_components.css">
 </head>
 <body>
 
-    <div class="sidebar">
-        <div class="sidebar-brand">
-            <i class="fa-solid fa-cubes"></i> <span>PalmFox</span>
+    <!-- ===== SIDEBAR (identique à commande.html / clients.html) ===== -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <i class="fa-solid fa-cubes"></i>
+            <span>PalmFox</span>
         </div>
-        <ul class="sidebar-menu">
-            <li><a href="#"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></a></li>
-            <li><a href="clients.html"><i class="fa-solid fa-users"></i><span>Clients</span></a></li>
-            <li class="active"><a href="#"><i class="fa-solid fa-box-open"></i><span>Produits</span></a></li>
-            <li><a href="commande.html"><i class="fa-solid fa-cart-shopping"></i><span>Commandes</span></a></li>
-            <li><a href="Livraisons.php"><i class="fa-solid fa-truck"></i><span>Livraisons</span></a></li>
-            <li><a href="chatbot.html"><i class="fa-solid fa-robot"></i><span>Chatbot IA</span></a></li>
-            <li><a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i><span>Déconnexion</span></a></li>
-        </ul>
-    </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.php" class="nav-item">
+                <i class="fa-solid fa-chart-pie"></i> Dashboard
+            </a>
+            <a href="clients.html" class="nav-item">
+                <i class="fa-solid fa-users"></i> Clients
+            </a>
+            <a href="produits.php" class="nav-item active">
+                <i class="fa-solid fa-box-open"></i> Produits
+            </a>
+            <a href="commande.html" class="nav-item">
+                <i class="fa-solid fa-cart-shopping"></i> Commandes
+            </a>
+            <a href="livraisons.php" class="nav-item">
+                <i class="fa-solid fa-truck"></i> Livraisons
+            </a>
+            <a href="chatbot.html" class="nav-item">
+                <i class="fa-solid fa-robot"></i> Chatbot IA
+            </a>
+            <a href="logout.php" class="nav-item nav-logout">
+                <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+            </a>
+        </nav>
+    </aside>
 
-    <div class="main-content">
-        <div class="header">
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+
+        <div class="topbar">
             <div class="user-profile">
                 <div class="user-avatar">AM</div>
                 <h5>Admin</h5>
             </div>
         </div>
 
-        <div class="container">
-            <div class="page-title-block">
-                <h2>Catalogue des Produits</h2>
-                <button class="btn-primary" onclick="openModal('add')">
-                    <i class="fa-solid fa-plus"></i> Ajouter un produit
-                </button>
+        <header class="page-header">
+            <div>
+                <h1>Catalogue des Produits</h1>
+                <p class="page-subtitle">Gérez vos produits et suivez votre stock.</p>
             </div>
+            <button class="btn-primary" onclick="openModal('add')">
+                <i class="fa-solid fa-plus"></i> Ajouter un produit
+            </button>
+        </header>
 
-            <div class="search-container">
-                <div class="search-and-filter-row">
+        <!-- ===== TABLE + RECHERCHE/FILTRE ===== -->
+        <section class="table-card">
+            <div class="table-card-header">
+                <h2>Liste des Produits</h2>
+                <div class="table-actions">
                     <div class="search-box">
-                        <i class="fa-solid fa-magnifying-glass" style="color: var(--text-light);"></i>
+                        <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="text" placeholder="Rechercher par nom de produit...">
                     </div>
-                    
-                    <button class="btn-filter" onclick="toggleFilterOptions()">
-                        <i class="fa-solid fa-sliders"></i> <span>Filtrer</span>
+                    <button class="btn-secondary" onclick="toggleFilterOptions()">
+                        <i class="fa-solid fa-sliders"></i> Filtrer
                     </button>
-                </div>
-
-                <div class="filter-options-panel" id="filterPanel">
-                    <div class="filter-group">
-                        <label for="filterStock">État du Stock :</label>
-                        <select id="filterStock" class="filter-control">
-                            <option value="all">Tous les produits</option>
-                            <option value="instock">En stock (Suffisant)</option>
-                            <option value="lowstock">Stock faible</option>
-                            <option value="out">Rupture de stock</option>
-                        </select>
-                    </div>
-                    
-                    <div class="filter-actions-inline">
-                        <button class="btn-primary-small">Appliquer</button>
-                    </div>
                 </div>
             </div>
 
-            <div class="table-container">
+            <div class="filter-options-panel" id="filterPanel">
+                <div class="filter-group">
+                    <label for="filterStock">État du Stock :</label>
+                    <select id="filterStock" class="filter-control">
+                        <option value="all">Tous les produits</option>
+                        <option value="instock">En stock (Suffisant)</option>
+                        <option value="lowstock">Stock faible</option>
+                        <option value="out">Rupture de stock</option>
+                    </select>
+                </div>
+                <div class="filter-actions-inline">
+                    <button class="btn-primary-small">Appliquer</button>
+                </div>
+            </div>
+
+            <div class="table-scroll">
                 <table class="data-table">
                     <thead>
                         <tr>
@@ -96,16 +116,17 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
+    <!-- ===== MODAL: AJOUTER / MODIFIER PRODUIT ===== -->
     <div class="modal-overlay" id="productModal">
-        <div class="modal">
+        <div class="modal-box">
             <div class="modal-header">
                 <h3 id="modalTitle">Ajouter un Nouveau Produit</h3>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
+                <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <form onsubmit="event.preventDefault(); closeModal();">
+            <form class="modal-body" onsubmit="event.preventDefault(); closeModal();">
                 <div class="form-group">
                     <label>Code Produit</label>
                     <input type="text" id="formCode" class="form-control" required>
@@ -130,16 +151,15 @@
         </div>
     </div>
 
+    <!-- ===== MODAL: CONFIRMER SUPPRESSION ===== -->
     <div class="modal-overlay" id="deleteModal">
-        <div class="modal" style="max-width: 400px; text-align: center;">
-            <div style="color: var(--danger); font-size: 50px; margin-bottom: 15px;">
-                <i class="fa-solid fa-circle-exclamation"></i>
-            </div>
+        <div class="modal-box modal-box-sm delete-box">
+            <div class="delete-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
             <h3>Confirmer la suppression</h3>
-            <p style="color: var(--text-light); margin-top: 10px; margin-bottom: 25px;">
-                Voulez-vous vraiment supprimer le produit : <br><strong id="deleteProductName" style="color: var(--text-dark);">[Nom]</strong> ?
+            <p class="delete-text">
+                Voulez-vous vraiment supprimer le produit : <br><strong id="deleteProductName">[Nom]</strong> ?
             </p>
-            <div style="display: flex; justify-content: center; gap: 15px;">
+            <div class="delete-actions">
                 <button type="button" class="btn-secondary" onclick="closeDeleteModal()">Annuler</button>
                 <button type="button" class="btn-danger-modal" onclick="closeDeleteModal()">Oui, supprimer</button>
             </div>
