@@ -1,5 +1,10 @@
-function openModal(mode, code = '', ref = '', desc = '', qty = 0) {
-    const modal = document.getElementById('productModal');
+function toggleFilterOptions() {
+            const panel = document.getElementById('filterPanel');
+            panel.classList.toggle('active');
+        }
+
+        function openModal(mode, code = '', ref = '', desc = '', qty = 0) {
+            const modal = document.getElementById('productModal');
             const title = document.getElementById('modalTitle');
             const submitBtn = document.getElementById('formSubmitBtn');
 
@@ -21,16 +26,9 @@ function openModal(mode, code = '', ref = '', desc = '', qty = 0) {
             modal.classList.add('active');
         }
 
-        function closeModal() {
-            document.getElementById('productModal').classList.remove('active');
-        }
-
-        // Ouvre le pop-up de Suppression
+        function closeModal() { document.getElementById('productModal').classList.remove('active'); }
         function openDeleteModal(productName) {
             document.getElementById('deleteProductName').innerText = productName;
             document.getElementById('deleteModal').classList.add('active');
         }
-
-        function closeDeleteModal() {
-            document.getElementById('deleteModal').classList.remove('active');
-        }
+        function closeDeleteModal() { document.getElementById('deleteModal').classList.remove('active'); }

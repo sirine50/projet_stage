@@ -5,29 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ERP Pro - Gestion des Produits</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="sidebar_header.css">
     <link rel="stylesheet" href="produits.css">
     <link rel="stylesheet" href="main_components.css">
 </head>
 <body>
+
     <div class="sidebar">
         <div class="sidebar-brand">
-            <i class="fa-solid fa-cubes"></i>
-            <span> PalmFox</span>
+            <i class="fa-solid fa-cubes"></i> <span>PalmFox</span>
         </div>
-        <hr>
         <ul class="sidebar-menu">
-            <li><a href="dashboard.php"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></a></li>
-            <li><a href="clients.php"><i class="fa-solid fa-users"></i><span>Clients</span></a></li>
+            <li><a href="#"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></a></li>
+            <li><a href="clients.html"><i class="fa-solid fa-users"></i><span>Clients</span></a></li>
             <li class="active"><a href="#"><i class="fa-solid fa-box-open"></i><span>Produits</span></a></li>
-            <li><a href="commandes.php"><i class="fa-solid fa-cart-shopping"></i><span>Commandes</span></a></li>
-            <li><a href="livraison.php"><i class="fa-solid fa-truck"></i><span>Livraisons</span></a></li>
+            <li><a href="commande.html"><i class="fa-solid fa-cart-shopping"></i><span>Commandes</span></a></li>
+            <li><a href="Livraisons.php"><i class="fa-solid fa-truck"></i><span>Livraisons</span></a></li>
             <li><a href="chatbot.html"><i class="fa-solid fa-robot"></i><span>Chatbot IA</span></a></li>
             <li><a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i><span>Déconnexion</span></a></li>
         </ul>
     </div>
 
     <div class="main-content">
-        
         <div class="header">
             <div class="user-profile">
                 <div class="user-avatar">AM</div>
@@ -44,9 +43,31 @@
             </div>
 
             <div class="search-container">
-                <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass" style="color: var(--text-light);"></i>
-                    <input type="text" placeholder="Rechercher par nom de produit ou code...">
+                <div class="search-and-filter-row">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass" style="color: var(--text-light);"></i>
+                        <input type="text" placeholder="Rechercher par nom de produit...">
+                    </div>
+                    
+                    <button class="btn-filter" onclick="toggleFilterOptions()">
+                        <i class="fa-solid fa-sliders"></i> <span>Filtrer</span>
+                    </button>
+                </div>
+
+                <div class="filter-options-panel" id="filterPanel">
+                    <div class="filter-group">
+                        <label for="filterStock">État du Stock :</label>
+                        <select id="filterStock" class="filter-control">
+                            <option value="all">Tous les produits</option>
+                            <option value="instock">En stock (Suffisant)</option>
+                            <option value="lowstock">Stock faible</option>
+                            <option value="out">Rupture de stock</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-actions-inline">
+                        <button class="btn-primary-small">Appliquer</button>
+                    </div>
                 </div>
             </div>
 
