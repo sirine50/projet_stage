@@ -1,8 +1,7 @@
 /* ==========================================================================
-   STYLE COMPLÉMENTAIRE - DESIGN IMPÉCCABLE MAQUETTE 
+   INTERFACES COMPLÉMENTAIRES - COMPATIBLE AVEC VOS VARIABLES DE BASE
    ========================================================================== */
 
-/* Ajustement de la typographie de la date */
 #dashboardDate {
     color: var(--text-light);
     font-size: 15px;
@@ -10,7 +9,7 @@
     font-weight: 500;
 }
 
-/* Grille spécifique aux 4 blocs KPI (2 par ligne) */
+/* Grille alignée (2 éléments par ligne) */
 .cards-dashboard-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -18,7 +17,6 @@
     margin-bottom: 32px;
 }
 
-/* Structure d'une carte KPI moderne */
 .card-kpi {
     background: var(--white);
     border-radius: 16px;
@@ -59,7 +57,6 @@
     font-size: 13px;
 }
 
-/* Conteneur icone + badge évolution */
 .card-kpi-side {
     display: flex;
     flex-direction: column;
@@ -67,7 +64,7 @@
     gap: 24px;
 }
 
-/* Déclinaisons de couleurs des icônes de la maquette */
+/* Zone Icônes avec background translucide */
 .card-kpi-icon {
     width: 48px;
     height: 48px;
@@ -83,7 +80,7 @@
 .icon-orange { background: #fff7ed; color: #ea580c; }
 .icon-green  { background: #f0fdf4; color: #16a34a; }
 
-/* Badges de tendance */
+/* Evolution tendances */
 .trend-badge {
     font-weight: 600;
     font-size: 13px;
@@ -95,7 +92,7 @@
 .trend-up   { color: #10b981; }
 .trend-down { color: #ef4444; }
 
-/* Personnalisation du tableau de la maquette */
+/* Rendu du Tableau Pro */
 .card-table-layout {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     border-radius: 16px;
@@ -139,7 +136,7 @@
     vertical-align: middle;
 }
 
-/* Badges de statuts épurés avec points */
+/* Badges de statuts dynamiques avec puces */
 .badge-status {
     padding: 6px 14px;
     border-radius: 20px;
@@ -166,7 +163,6 @@
     color: #15803d;
 }
 
-/* Responsive */
 @media(max-width: 1024px) {
     .cards-dashboard-grid {
         grid-template-columns: 1fr;

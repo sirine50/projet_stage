@@ -33,24 +33,6 @@ body{
     padding:40px;
 }
 
-
-
-.page-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:30px;
-}
-
-.page-header h1{
-    font-size:32px;
-}
-
-.page-header p{
-    color:var(--text-light);
-    margin-top:5px;
-}
-
 .btn-add{
     background:var(--sidebar-active);
     color:#fff;

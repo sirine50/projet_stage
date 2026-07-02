@@ -10,6 +10,39 @@ document.addEventListener("DOMContentLoaded", () => {
     const resetBtn = document.querySelector(".btn-reset");
     const addBtn = document.querySelector(".btn-add");
 
+    const overlay = document.getElementById("formOverlay");
+    const openFormBtn = document.getElementById("openFormBtn");
+    const closeFormBtn = document.getElementById("closeFormBtn");
+
+    // ---------------------------------------------------
+    // Ouvrir / fermer le modal du formulaire
+    // ---------------------------------------------------
+    function openModal() {
+        overlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+        overlay.classList.remove("active");
+        document.body.style.overflow = "";
+        cancelEdit();
+    }
+
+    openFormBtn.addEventListener("click", openModal);
+    closeFormBtn.addEventListener("click", closeModal);
+
+    // Fermer en cliquant sur le fond sombre (pas sur le formulaire lui-même)
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeModal();
+    });
+
+    // Fermer avec la touche Échap
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && overlay.classList.contains("active")) {
+            closeModal();
+        }
+    });
+
     const statusLabels = {
         attente: "En attente",
         confirme: "Confirmée",
@@ -53,10 +86,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const cards = document.querySelectorAll(".stats .card h2");
         // Ordre des cartes dans le HTML : Confirmées, En attente, Annulées, Livrées
-        if (cards[0]) cards[0].textContent = counts.confirme;
-        if (cards[1]) cards[1].textContent = counts.attente;
-        if (cards[2]) cards[2].textContent = counts.annule;
+        setCardValue(cards[0], counts.confirme);
+        setCardValue(cards[1], counts.attente);
+        setCardValue(cards[2], counts.annule);
         // Le total "Livrées" reste géré manuellement (pas de statut "livrée" dans le formulaire)
+    }
+
+    // ---------------------------------------------------
+    // Met à jour un chiffre de carte avec une petite animation
+    // ---------------------------------------------------
+    function setCardValue(cardEl, value) {
+        if (!cardEl) return;
+        if (cardEl.textContent == value) return; // pas de changement, pas d'animation
+
+        cardEl.textContent = value;
+        cardEl.classList.remove("pulse");
+        void cardEl.offsetWidth; // force le redémarrage de l'animation
+        cardEl.classList.add("pulse");
     }
 
     // ---------------------------------------------------
@@ -113,6 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         addBtn.innerHTML = '<i class="fa-solid fa-check"></i> Modifier';
+        openModal();
         form.scrollIntoView({ behavior: "smooth", block: "center" });
     }
 
@@ -130,6 +177,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // ---------------------------------------------------
     function buildRow(id, data) {
         const row = document.createElement("tr");
+        row.style.animation = "none";
+        void row.offsetWidth;
+        row.style.animation = "";
 
         row.innerHTML = `
             <td>${id}</td>
@@ -182,6 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         updateStats();
+        closeModal();
     });
 
     // ---------------------------------------------------
