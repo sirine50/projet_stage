@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,9 @@
     <link rel="stylesheet" href="sidebar_header.css">
     <link rel="stylesheet" href="produits.css">
 </head>
+
 <body>
 
-    <!-- ===== SIDEBAR (identique à commande.html / clients.html) ===== -->
     <aside class="sidebar">
         <div class="sidebar-logo">
             <i class="fa-solid fa-cubes"></i>
@@ -41,15 +42,14 @@
         </nav>
     </aside>
 
-    <!-- ===== MAIN CONTENT ===== -->
     <main class="main-content">
 
-       <div class="topbar">
-    <a href="admin.html" class="user-profile">
-        <div class="user-avatar">AM</div>
-        <h5>Admin</h5>
-    </a>
-</div>
+        <div class="topbar">
+            <a href="admin.html" class="user-profile">
+                <div class="user-avatar">AM</div>
+                <h5>Admin</h5>
+            </a>
+        </div>
         </div>
 
         <header class="page-header">
@@ -62,7 +62,7 @@
             </button>
         </header>
 
-        <!-- ===== TABLE + RECHERCHE/FILTRE ===== -->
+        <!--TABLE + RECHERCHE/FILTRE-->
         <section class="table-card">
             <div class="table-card-header">
                 <h2>Liste des Produits</h2>
@@ -112,8 +112,11 @@
                             <td>Module de communication sans fil.</td>
                             <td><span class="badge badge-warning">5 unités</span></td>
                             <td class="action-btns">
-                                <button class="btn-icon btn-edit" onclick="openModal('edit', 'MOD-WIFI-03', 'Module WiFi v3', 'Module de communication sans fil.', 5)"><i class="fa-solid fa-pen"></i></button>
-                                <button class="btn-icon btn-delete" onclick="openDeleteModal('Module WiFi v3')"><i class="fa-solid fa-trash"></i></button>
+                                <button class="btn-icon btn-edit"
+                                    onclick="openModal('edit', 'MOD-WIFI-03', 'Module WiFi v3', 'Module de communication sans fil.', 5)"><i
+                                        class="fa-solid fa-pen"></i></button>
+                                <button class="btn-icon btn-delete" onclick="openDeleteModal('Module WiFi v3')"><i
+                                        class="fa-solid fa-trash"></i></button>
                             </td>
                         </tr>
                     </tbody>
@@ -122,7 +125,7 @@
         </section>
     </main>
 
-    <!-- ===== MODAL: AJOUTER / MODIFIER PRODUIT ===== -->
+    <!--MODAL: AJOUTER / MODIFIER PRODUIT-->
     <div class="modal-overlay" id="productModal">
         <div class="modal-box">
             <div class="modal-header">
@@ -154,7 +157,7 @@
         </div>
     </div>
 
-    <!-- ===== MODAL: CONFIRMER SUPPRESSION ===== -->
+    <!--MODAL: CONFIRMER SUPPRESSION-->
     <div class="modal-overlay" id="deleteModal">
         <div class="modal-box modal-box-sm delete-box">
             <div class="delete-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
@@ -171,4 +174,5 @@
 
     <script src="produits.js"></script>
 </body>
+
 </html>

@@ -1,9 +1,4 @@
-/* ===========================================================
-   produits.css — styles propres à la page Catalogue des Produits
-   Même système de design que commande.css / clients.css :
-   dégradé brun → noir, table-card, modal.
-   (sidebar_header.css gère déjà .sidebar / .nav-item / .main-content)
-   =========================================================== */
+
 
 * { box-sizing: border-box; }
 
@@ -15,7 +10,7 @@
 
 
 
-/* ---------- HEADER ---------- */
+/*HEADER*/
 .page-header {
     display: flex;
     justify-content: space-between;
@@ -36,7 +31,7 @@
     margin: 0;
 }
 
-/* ---------- BUTTONS ---------- */
+/*BUTTONS*/
 .btn-primary {
     background: linear-gradient(135deg, #9a6633 0%, #1c1410 100%);
     color: #fff;
@@ -329,14 +324,14 @@
     margin-top: 20px;
 }
 
-/* ---------- DELETE MODAL ---------- */
+/*DELETE MODAL*/
 .delete-box { display: flex; flex-direction: column; align-items: center; }
 .delete-icon { color: #c62828; font-size: 46px; margin-bottom: 14px; }
 .delete-text { color: #8a94a6; margin: 10px 0 22px; }
 .delete-text strong { color: #1e2432; }
 .delete-actions { display: flex; justify-content: center; gap: 14px; }
 
-/* ---------- RESPONSIVE ---------- */
+/*RESPONSIVE*/
 @media (max-width: 768px) {
     .main-content { padding: 20px; }
     .page-header { flex-direction: column; align-items: flex-start; gap: 16px; }

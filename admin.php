@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -8,7 +7,9 @@
     <title>PalmFox - Mon Compte</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="sidebar_header.css">
     <link rel="stylesheet" href="admin.css">
 </head>
@@ -116,7 +117,8 @@
                 <div class="settings-card-header">
                     <div>
                         <h2>Sécurité</h2>
-                        <p class="settings-card-subtitle">Modifiez votre mot de passe régulièrement pour protéger votre compte.</p>
+                        <p class="settings-card-subtitle">Modifiez votre mot de passe régulièrement pour protéger votre
+                            compte.</p>
                     </div>
                     <div class="settings-icon"><i class="fa-solid fa-lock"></i></div>
                 </div>
@@ -127,7 +129,8 @@
                         <div class="input-with-icon password-field">
                             <i class="fa-solid fa-key"></i>
                             <input type="password" id="currentPassword" required>
-                            <button type="button" class="toggle-eye" data-target="currentPassword"><i class="fa-solid fa-eye"></i></button>
+                            <button type="button" class="toggle-eye" data-target="currentPassword"><i
+                                    class="fa-solid fa-eye"></i></button>
                         </div>
                     </div>
 
@@ -136,7 +139,8 @@
                         <div class="input-with-icon password-field">
                             <i class="fa-solid fa-lock"></i>
                             <input type="password" id="newPassword" minlength="8" required>
-                            <button type="button" class="toggle-eye" data-target="newPassword"><i class="fa-solid fa-eye"></i></button>
+                            <button type="button" class="toggle-eye" data-target="newPassword"><i
+                                    class="fa-solid fa-eye"></i></button>
                         </div>
                         <span class="field-hint">8 caractères minimum</span>
                     </div>
@@ -146,7 +150,8 @@
                         <div class="input-with-icon password-field">
                             <i class="fa-solid fa-lock"></i>
                             <input type="password" id="confirmPassword" minlength="8" required>
-                            <button type="button" class="toggle-eye" data-target="confirmPassword"><i class="fa-solid fa-eye"></i></button>
+                            <button type="button" class="toggle-eye" data-target="confirmPassword"><i
+                                    class="fa-solid fa-eye"></i></button>
                         </div>
                     </div>
 
@@ -175,7 +180,8 @@
             </div>
 
             <div class="modal-body" id="forgotStepEmail">
-                <p class="modal-text">Entrez l'adresse email associée à votre compte. Un lien de réinitialisation vous sera envoyé.</p>
+                <p class="modal-text">Entrez l'adresse email associée à votre compte. Un lien de réinitialisation vous
+                    sera envoyé.</p>
                 <div class="form-group">
                     <label>Adresse email</label>
                     <div class="input-with-icon">

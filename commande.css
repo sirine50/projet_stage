@@ -14,7 +14,7 @@
 
 
 
-/* ---------- HEADER ---------- */
+/*HEADER*/
 .page-header {
     display: flex;
     justify-content: space-between;
@@ -124,7 +124,7 @@
     margin-top: 2px;
 }
 
-/* ---------- TABLE CARD ---------- */
+/*TABLE CARD*/
 .table-card {
     background: #fff;
     border-radius: 14px;
@@ -203,7 +203,7 @@
 .badge-annulee   { background: #fbdada; color: #c62828; }
 .badge-livree    { background: #d9f3e3; color: #1e824c; }
 
-/* ---------- ACTION BUTTONS ---------- */
+/*ACTION BUTTONS*/
 .action-btn {
     border: none;
     background: #eef0f4;
@@ -223,7 +223,7 @@
     padding: 30px;
 }
 
-/* ---------- MODAL ---------- */
+/*MODAL*/
 .modal-overlay {
     display: none;
     position: fixed;

@@ -1,7 +1,4 @@
-/* ===========================================================
-   login.css — page de connexion PalmFox
-   Même système de design que admin.css (brun-noir, Playfair Display)
-   =========================================================== */
+
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -15,7 +12,7 @@ body {
     min-height: 100vh;
 }
 
-/* ---------- PANNEAU FORMULAIRE ---------- */
+/*PANNEAU FORMULAIRE*/
 .login-panel {
     flex: 1;
     display: flex;
@@ -191,7 +188,7 @@ body {
 }
 .social-btn:hover { border-color: #8a5a30; color: #8a5a30; }
 
-/* ---------- PANNEAU DE BIENVENUE ---------- */
+/*PANNEAU DE BIENVENUE*/
 .welcome-panel {
     flex: 1;
     position: relative;
@@ -265,7 +262,7 @@ body {
 }
 .welcome-footer a:hover { text-decoration: underline; }
 
-/* ---------- RESPONSIVE ---------- */
+/*RESPONSIVE*/
 @media (max-width: 900px) {
     .login-wrapper { flex-direction: column; }
     .welcome-panel { display: none; }

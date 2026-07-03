@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -64,67 +63,67 @@
         <!-- ===== KPI CARDS ===== -->
         <section class="cards-dashboard-grid">
 
-    <!-- ===== Clients ===== -->
-    <div class="card-kpi">
-        <div class="card-kpi-info">
-            <span class="card-kpi-title">Clients Actifs</span>
-            <h2 class="card-kpi-value"></h2>
-            <span class="card-kpi-sub"></span>
-        </div>
-        <div class="card-kpi-side">
-            <div class="card-kpi-icon icon-clients">
-                <i class="fa-solid fa-users"></i>
+            <!-- ===== Clients ===== -->
+            <div class="card-kpi">
+                <div class="card-kpi-info">
+                    <span class="card-kpi-title">Clients Actifs</span>
+                    <h2 class="card-kpi-value"></h2>
+                    <span class="card-kpi-sub"></span>
+                </div>
+                <div class="card-kpi-side">
+                    <div class="card-kpi-icon icon-clients">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <span class="trend-badge"></span>
+                </div>
             </div>
-            <span class="trend-badge"></span>
-        </div>
-    </div>
 
-    <!-- ===== Commandes ===== -->
-    <div class="card-kpi">
-        <div class="card-kpi-info">
-            <span class="card-kpi-title">Commandes</span>
-            <h2 class="card-kpi-value"></h2>
-            <span class="card-kpi-sub"></span>
-        </div>
-        <div class="card-kpi-side">
-            <div class="card-kpi-icon icon-commandes">
-                <i class="fa-solid fa-cart-shopping"></i>
+            <!-- ===== Commandes ===== -->
+            <div class="card-kpi">
+                <div class="card-kpi-info">
+                    <span class="card-kpi-title">Commandes</span>
+                    <h2 class="card-kpi-value"></h2>
+                    <span class="card-kpi-sub"></span>
+                </div>
+                <div class="card-kpi-side">
+                    <div class="card-kpi-icon icon-commandes">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <span class="trend-badge"></span>
+                </div>
             </div>
-            <span class="trend-badge"></span>
-        </div>
-    </div>
 
-    <!-- ===== Livraisons ===== -->
-    <div class="card-kpi">
-        <div class="card-kpi-info">
-            <span class="card-kpi-title">Livraisons</span>
-            <h2 class="card-kpi-value"></h2>
-            <span class="card-kpi-sub"></span>
-        </div>
-        <div class="card-kpi-side">
-            <div class="card-kpi-icon icon-livraisons">
-                <i class="fa-solid fa-truck"></i>
+            <!-- ===== Livraisons ===== -->
+            <div class="card-kpi">
+                <div class="card-kpi-info">
+                    <span class="card-kpi-title">Livraisons</span>
+                    <h2 class="card-kpi-value"></h2>
+                    <span class="card-kpi-sub"></span>
+                </div>
+                <div class="card-kpi-side">
+                    <div class="card-kpi-icon icon-livraisons">
+                        <i class="fa-solid fa-truck"></i>
+                    </div>
+                    <span class="trend-badge"></span>
+                </div>
             </div>
-            <span class="trend-badge"></span>
-        </div>
-    </div>
 
-    <!-- ===== Stock ===== -->
-    <div class="card-kpi">
-        <div class="card-kpi-info">
-            <span class="card-kpi-title">Valeur Stock</span>
-            <h2 class="card-kpi-value font-mono"></h2>
-            <span class="card-kpi-sub"></span>
-        </div>
-        <div class="card-kpi-side">
-            <div class="card-kpi-icon icon-stock">
-                <i class="fa-solid fa-box"></i>
+            <!-- ===== Stock ===== -->
+            <div class="card-kpi">
+                <div class="card-kpi-info">
+                    <span class="card-kpi-title">Valeur Stock</span>
+                    <h2 class="card-kpi-value font-mono"></h2>
+                    <span class="card-kpi-sub"></span>
+                </div>
+                <div class="card-kpi-side">
+                    <div class="card-kpi-icon icon-stock">
+                        <i class="fa-solid fa-box"></i>
+                    </div>
+                    <span class="trend-badge"></span>
+                </div>
             </div>
-            <span class="trend-badge"></span>
-        </div>
-    </div>
 
-</section>
+        </section>
 
         <!-- ===== COMMANDES RÉCENTES ===== -->
         <section class="table-card">
@@ -146,12 +145,12 @@
                         </tr>
                     </thead>
                     <tbody id="commandesTableBody">
-    <tr>
-        <td>
-            Aucune donnée disponible.
-        </td>
-    </tr>
-</tbody>
+                        <tr>
+                            <td>
+                                Aucune donnée disponible.
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </section>

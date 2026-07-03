@@ -11,7 +11,6 @@
 </head>
 <body>
 
-    <!-- ===== SIDEBAR ===== -->
     <aside class="sidebar">
         <div class="sidebar-logo">
             <i class="fa-solid fa-cubes"></i>
@@ -42,7 +41,6 @@
         </nav>
     </aside>
 
-    <!-- ===== MAIN CONTENT ===== -->
     <main class="main-content">
 
         <div class="topbar">
@@ -62,7 +60,6 @@
             </button>
         </header>
 
-        <!-- ===== STAT CARDS ===== -->
         <section class="stats-grid">
             <div class="stat-card">
                 <div class="stat-icon icon-confirmed"><i class="fa-solid fa-check"></i></div>
@@ -98,7 +95,7 @@
             </div>
         </section>
 
-        <!-- ===== TABLE ===== -->
+        <!-- TABLE -->
         <section class="table-card">
             <div class="table-card-header">
                 <h2>Liste des Commandes</h2>
@@ -130,7 +127,7 @@
         </section>
     </main>
 
-    <!-- ===== MODAL: AJOUTER / MODIFIER COMMANDE ===== -->
+    <!--MODAL: AJOUTER / MODIFIER COMMANDE-->
     <div class="modal-overlay" id="commandeModal">
         <div class="modal-box">
             <div class="modal-header">

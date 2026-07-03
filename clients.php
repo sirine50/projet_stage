@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -44,15 +43,15 @@
         </nav>
     </aside>
 
-    <!-- ===== MAIN CONTENT ===== -->
+    <!-- MAIN CONTENT-->
     <main class="main-content">
 
         <div class="topbar">
-    <a href="admin.php" class="user-profile">
-        <div class="user-avatar">AM</div>
-        <h5>Admin</h5>
-    </a>
-</div>
+            <a href="admin.php" class="user-profile">
+                <div class="user-avatar">AM</div>
+                <h5>Admin</h5>
+            </a>
+        </div>
 
         <header class="page-header">
             <div>
@@ -64,7 +63,7 @@
             </button>
         </header>
 
-        <!-- ===== STAT CARDS ===== -->
+        <!--STAT CARDS-->
         <section class="stats-grid">
             <div class="stat-card">
                 <div class="stat-icon icon-total"><i class="fa-solid fa-users"></i></div>
@@ -96,7 +95,7 @@
             </div>
         </section>
 
-        <!-- ===== TABLE ===== -->
+        <!--TABLE-->
         <section class="table-card">
             <div class="table-card-header">
                 <h2>Liste des Clients</h2>
@@ -132,12 +131,13 @@
                 </table>
             </div>
 
-            <p class="empty-state" id="emptyState">Aucun client pour le moment. Cliquez sur « Nouveau Client » pour en ajouter un.</p>
+            <p class="empty-state" id="emptyState">Aucun client pour le moment. Cliquez sur « Nouveau Client » pour en
+                ajouter un.</p>
         </section>
 
     </main>
 
-    <!-- ===== MODAL: AJOUTER / MODIFIER CLIENT ===== -->
+    <!--MODAL: AJOUTER / MODIFIER CLIENT-->
     <div class="modal-overlay" id="clientModal">
         <div class="modal-box modal-box-lg">
 
@@ -212,7 +212,7 @@
         </div>
     </div>
 
-    <!-- ===== MODAL: FILTRER ===== -->
+    <!--MODAL: FILTRER-->
     <div class="modal-overlay" id="filterModal">
         <div class="modal-box">
 

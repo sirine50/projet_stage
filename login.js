@@ -1,8 +1,6 @@
-/* ===========================================================
-   login.js — page de connexion (front-end, sans backend)
-   À remplacer plus tard par un vrai appel fetch() vers login.php
-   qui vérifie les identifiants en base de données.
-   =========================================================== */
+/*login.js — page de connexion (front-end, sans backend)
+ À remplacer plus tard par un vrai appel fetch() vers login.php
+qui vérifie les identifiants en base de données.*/
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -11,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const togglePassword = document.getElementById("toggleLoginPassword");
     const passwordInput = document.getElementById("loginPassword");
 
-    // ---------- AFFICHER / MASQUER LE MOT DE PASSE ----------
+    // AFFICHER / MASQUER LE MOT DE PASSE 
     togglePassword.addEventListener("click", () => {
         const isHidden = passwordInput.type === "password";
         passwordInput.type = isHidden ? "text" : "password";
@@ -19,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         togglePassword.querySelector("i").classList.toggle("fa-eye-slash");
     });
 
-    // ---------- SOUMISSION DU FORMULAIRE ----------
+    //SOUMISSION DU FORMULAIRE
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         errorEl.textContent = "";
