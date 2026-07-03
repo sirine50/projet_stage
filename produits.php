@@ -44,11 +44,12 @@
     <!-- ===== MAIN CONTENT ===== -->
     <main class="main-content">
 
-        <div class="topbar">
-            <div class="user-profile">
-                <div class="user-avatar">AM</div>
-                <h5>Admin</h5>
-            </div>
+       <div class="topbar">
+    <a href="admin.html" class="user-profile">
+        <div class="user-avatar">AM</div>
+        <h5>Admin</h5>
+    </a>
+</div>
         </div>
 
         <header class="page-header">
