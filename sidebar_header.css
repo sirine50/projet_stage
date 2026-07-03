@@ -1,6 +1,4 @@
-/* ===========================================================
-   sidebar_header.css — sidebar partagé PalmFox (toutes les pages)
-   =========================================================== */
+/* sidebar_header.css — sidebar partagé PalmFox (toutes les pages)*/
 
 * { box-sizing: border-box; }
 
@@ -9,7 +7,7 @@ body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
-/* ---------- SIDEBAR ---------- */
+/*SIDEBAR*/
 .sidebar {
     position: fixed;
     top: 0;
@@ -79,16 +77,49 @@ body {
     margin-top: auto;
 }
 
-/* ---------- MAIN CONTENT OFFSET ---------- */
+
 .main-content {
     margin-left: 250px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
     .sidebar { width: 72px; padding: 24px 10px; }
     .sidebar-logo span,
     .nav-item span,
+    .nav-item {font-size: 0px;}
     .nav-item { justify-content: center; }
     .nav-item { gap: 0; }
     .main-content { margin-left: 72px; }
+}
+
+.topbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #9a6633 0%, #1c1410 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-profile h5 {
+    margin: 0;
+    font-size: 14px;
+    color: #1e2432;
+    font-weight: 600;
 }
