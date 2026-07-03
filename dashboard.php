@@ -130,7 +130,7 @@
         <section class="table-card">
             <div class="table-card-header">
                 <h2>Commandes récentes</h2>
-                <a href="commande.html" class="btn-view-all">Voir tout</a>
+                <a href="commande.php" class="btn-view-all">Voir tout</a>
             </div>
 
             <div class="table-scroll">
