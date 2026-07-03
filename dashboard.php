@@ -11,6 +11,13 @@
 </head>
 
 <body>
+    <div class="topbar">
+            <a href="admin.php" class="user-profile">
+                <div class="user-avatar">AM</div>
+                <h5>Admin</h5>
+            </a>
+        </div>
+
 
     <!-- ===== SIDEBAR (identique à commande.html / clients.html / produits.html) ===== -->
     <aside class="sidebar">
