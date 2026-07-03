@@ -46,7 +46,7 @@
     <main class="main-content">
 
         <div class="topbar">
-    <a href="admin.html" class="user-profile">
+    <a href="admin.php" class="user-profile">
         <div class="user-avatar">AM</div>
         <h5>Admin</h5>
     </a>
