@@ -17,7 +17,7 @@
             <span>PalmFox</span>
         </div>
         <nav class="sidebar-nav">
-            <a href="dashboard.php" class="nav-item">
+            <a href="dashboard.html" class="nav-item">
                 <i class="fa-solid fa-chart-pie"></i> Dashboard
             </a>
             <a href="clients.html" class="nav-item">
@@ -95,6 +95,7 @@
                 <table class="data-table">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Code</th>
                             <th>Référence</th>
                             <th>Description</th>
@@ -104,6 +105,7 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td>1</td>
                             <td><strong>MOD-WIFI-03</strong></td>
                             <td>Module WiFi v3</td>
                             <td>Module de communication sans fil.</td>
