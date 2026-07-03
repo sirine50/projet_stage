@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="sidebar_header.css">
     <link rel="stylesheet" href="commande.css">
 </head>
+
 <body>
 
     <aside class="sidebar">
@@ -44,11 +45,11 @@
     <main class="main-content">
 
         <div class="topbar">
-    <a href="admin.php" class="user-profile">
-        <div class="user-avatar">AM</div>
-        <h5>Admin</h5>
-    </a>
-</div>
+            <a href="admin.php" class="user-profile">
+                <div class="user-avatar">AM</div>
+                <h5>Admin</h5>
+            </a>
+        </div>
 
         <header class="page-header">
             <div>
@@ -178,4 +179,5 @@
 
     <script src="commade.js"></script>
 </body>
+
 </html>
