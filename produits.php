@@ -17,7 +17,7 @@
             <span>PalmFox</span>
         </div>
         <nav class="sidebar-nav">
-            <a href="dashboard.php" class="nav-item">
+            <a href="dashboard.html" class="nav-item">
                 <i class="fa-solid fa-chart-pie"></i> Dashboard
             </a>
             <a href="clients.html" class="nav-item">
