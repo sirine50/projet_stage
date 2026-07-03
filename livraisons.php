@@ -19,7 +19,7 @@
             <a href="dashboard.php" class="nav-item">
                 <i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span>
             </a>
-            <a href="clients.html" class="nav-item">
+            <a href="clients.php" class="nav-item">
                 <i class="fa-solid fa-users"></i> <span>Clients</span>
             </a>
             <a href="produits.php" class="nav-item">
