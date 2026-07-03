@@ -41,6 +41,13 @@
             </a>
         </nav>
     </aside>
+    <div class="topbar">
+            <a href="admin.php" class="user-profile">
+                <div class="user-avatar">AM</div>
+                <h5>Admin</h5>
+            </a>
+        </div>
+
 
     <main class="main-content">
 
