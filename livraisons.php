@@ -16,7 +16,7 @@
             <span>PalmFox</span>
         </div>
         <nav class="sidebar-nav">
-            <a href="dashboard.html" class="nav-item">
+            <a href="dashboard.php" class="nav-item">
                 <i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span>
             </a>
             <a href="clients.html" class="nav-item">
@@ -25,13 +25,13 @@
             <a href="produits.php" class="nav-item">
                 <i class="fa-solid fa-box-open"></i> <span>Produits</span>
             </a>
-            <a href="commande.html" class="nav-item">
+            <a href="commande.php" class="nav-item">
                 <i class="fa-solid fa-cart-shopping"></i> <span>Commandes</span>
             </a>
             <a href="livraisons.php" class="nav-item active">
                 <i class="fa-solid fa-truck"></i> <span>Livraisons</span>
             </a>
-            <a href="chatbot.html" class="nav-item">
+            <a href="chatbot.php" class="nav-item">
                 <i class="fa-solid fa-robot"></i> <span>Chatbot IA</span>
             </a>
             <a href="logout.php" class="nav-item nav-logout">

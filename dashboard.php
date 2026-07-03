@@ -20,22 +20,22 @@
             <span>PalmFox</span>
         </div>
         <nav class="sidebar-nav">
-            <a href="dashboard.html" class="nav-item active">
+            <a href="dashboard.php" class="nav-item active">
                 <i class="fa-solid fa-chart-pie"></i> Dashboard
             </a>
-            <a href="clients.html" class="nav-item">
+            <a href="clients.php" class="nav-item">
                 <i class="fa-solid fa-users"></i> Clients
             </a>
             <a href="produits.php" class="nav-item">
                 <i class="fa-solid fa-box-open"></i> Produits
             </a>
-            <a href="commande.html" class="nav-item">
+            <a href="commande.php" class="nav-item">
                 <i class="fa-solid fa-cart-shopping"></i> Commandes
             </a>
             <a href="livraisons.php" class="nav-item">
                 <i class="fa-solid fa-truck"></i> Livraisons
             </a>
-            <a href="chatbot.html" class="nav-item">
+            <a href="chatbot.php" class="nav-item">
                 <i class="fa-solid fa-robot"></i> Chatbot IA
             </a>
             <a href="logout.php" class="nav-item nav-logout">
