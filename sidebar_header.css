@@ -102,7 +102,13 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 10px;
+    transition: background .15s ease;
 }
+.user-profile:hover { background: #eee7dd; }
 
 .user-avatar {
     width: 36px;

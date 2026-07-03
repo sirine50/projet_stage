@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -45,11 +46,11 @@
     <main class="main-content">
 
         <div class="topbar">
-            <div class="user-profile">
-                <div class="user-avatar">AM</div>
-                <h5>Admin</h5>
-            </div>
-        </div>
+    <a href="admin.html" class="user-profile">
+        <div class="user-avatar">AM</div>
+        <h5>Admin</h5>
+    </a>
+</div>
 
         <header class="page-header">
             <div>
@@ -178,6 +179,6 @@
         </div>
     </div>
 
-    <script src="commande.js"></script>
+    <script src="commade.js"></script>
 </body>
 </html>
