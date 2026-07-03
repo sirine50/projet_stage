@@ -1,10 +1,4 @@
-/* ===========================================================
-   commande.js — gestion des commandes (front-end, données mock)
-   À remplacer plus tard par des appels fetch() vers commande.php
-   quand le backend PHP/MySQL sera branché.
-   =========================================================== */
 
-// ---------- DONNÉES MOCK (à remplacer par la BDD) ----------
 let clients = [
     { id: 1, nom: "Ahmed" },
     { id: 2, nom: "Sara" },
@@ -23,9 +17,9 @@ let commandes = [
 ];
 
 let nextCmdNumber = commandes.length + 1;
-let editingId = null; // id de la commande en cours de modification, null = ajout
+let editingId = null; 
 
-// ---------- HELPERS ----------
+
 const $ = (sel) => document.querySelector(sel);
 
 function getClientName(clientId) {
@@ -47,7 +41,7 @@ function badgeClass(statut) {
     }
 }
 
-// ---------- RENDU DES SELECTS DU FORMULAIRE ----------
+
 function fillSelects() {
     const clientSelect = $("#clientSelect");
     const produitSelect = $("#produitSelect");
@@ -72,7 +66,7 @@ function updateStockInfo() {
     info.style.color = produit.stock > 0 ? "#8a94a6" : "#c62828";
 }
 
-// ---------- RENDU DU TABLEAU ----------
+
 function renderTable(filter = "") {
     const tbody = $("#commandesTableBody");
     const term = filter.trim().toLowerCase();
@@ -115,7 +109,7 @@ function formatDate(isoDate) {
     return `${d}/${m}/${y}`;
 }
 
-// ---------- STATS ----------
+
 function renderStats() {
     $("#statConfirmees").textContent = commandes.filter(c => c.statut === "Confirmée").length;
     $("#statAttente").textContent = commandes.filter(c => c.statut === "En attente").length;
@@ -123,7 +117,7 @@ function renderStats() {
     $("#statLivrees").textContent = commandes.filter(c => c.statut === "Livrée").length;
 }
 
-// ---------- MODAL ----------
+
 function openModal(mode, cmd = null) {
     const modal = $("#commandeModal");
     const form = $("#commandeForm");
@@ -153,8 +147,6 @@ function closeModal() {
     editingId = null;
 }
 
-// ---------- GESTION AUTOMATIQUE DU STOCK ----------
-// Remet en stock la quantité d'une commande annulée / supprimée
 function restockIfNeeded(cmd) {
     if (cmd.statut !== "Annulée") {
         const produit = getProduit(cmd.produitId);
@@ -162,7 +154,7 @@ function restockIfNeeded(cmd) {
     }
 }
 
-// ---------- SOUMISSION DU FORMULAIRE ----------
+
 function handleSubmit(e) {
     e.preventDefault();
 
@@ -177,25 +169,24 @@ function handleSubmit(e) {
     const produit = getProduit(produitId);
     if (!produit) { errorEl.textContent = "Veuillez choisir un produit."; return; }
 
-    // Si on modifie une commande existante, on remet d'abord son ancienne
-    // quantité en stock (sauf si elle était déjà annulée) avant de revérifier.
+
     const existing = editingId ? commandes.find(c => c.id === editingId) : null;
     let stockDisponible = produit.stock;
     if (existing && existing.produitId === produitId && existing.statut !== "Annulée") {
         stockDisponible += existing.quantite;
     }
 
-    // ---- Règle métier : stock à 0 ou quantité demandée > stock disponible ----
+
     if (statut !== "Annulée" && (produit.stock === 0 || quantite > stockDisponible)) {
         errorEl.textContent = `Stock insuffisant : ${stockDisponible} unité(s) disponible(s) pour "${produit.nom}".`;
         return;
     }
 
     if (editingId) {
-        // ---- MODIFICATION ----
+       
         const cmd = commandes.find(c => c.id === editingId);
 
-        // remettre l'ancienne quantité en stock avant d'appliquer la nouvelle
+        
         if (cmd.statut !== "Annulée") {
             const oldProduit = getProduit(cmd.produitId);
             if (oldProduit) oldProduit.stock += cmd.quantite;
@@ -210,7 +201,7 @@ function handleSubmit(e) {
 
         if (statut !== "Annulée") produit.stock -= quantite;
     } else {
-        // ---- AJOUT ----
+    
         const newCmd = {
             id: "CMD" + String(nextCmdNumber++).padStart(3, "0"),
             clientId, produitId, quantite, delai, dateLivraison, statut
@@ -219,13 +210,13 @@ function handleSubmit(e) {
         if (statut !== "Annulée") produit.stock -= quantite;
     }
 
-    fillSelects(); // rafraîchit les stocks affichés dans les selects
+    fillSelects(); 
     renderTable($("#searchInput").value);
     renderStats();
     closeModal();
 }
 
-// ---------- SUPPRESSION / ÉDITION VIA LE TABLEAU ----------
+
 function handleTableClick(e) {
     const btn = e.target.closest("button[data-action]");
     if (!btn) return;
@@ -247,7 +238,6 @@ function handleTableClick(e) {
     }
 }
 
-// ---------- INITIALISATION ----------
 document.addEventListener("DOMContentLoaded", () => {
     fillSelects();
     renderTable();

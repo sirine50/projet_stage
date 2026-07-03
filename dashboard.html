@@ -4,40 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau de bord - ERP Pro</title>
-    <link rel="stylesheet" href="sidebar_header.css">
-    <link rel="stylesheet" href="clients.css">
-    <link rel="stylesheet" href="dashboard.css">
+    <title>PalmFox - Tableau de bord</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="sidebar_header.css">
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 
 <body>
 
+    <!-- ===== SIDEBAR (identique à commande.html / clients.html / produits.html) ===== -->
     <aside class="sidebar">
         <div class="sidebar-logo">
             <i class="fa-solid fa-cubes"></i>
             <span>PalmFox</span>
         </div>
-        <ul class="sidebar-menu">
-            <li class="active"><a href="#"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></a></li>
-            <li><a href="clients.html"><i class="fa-solid fa-users"></i><span>Clients</span></a></li>
-            <li><a href="#"><i class="fa-solid fa-box-open"></i><span>Produits</span></a></li>
-            <li><a href="#"><i class="fa-solid fa-cart-shopping"></i><span>Commandes</span></a></li>
-            <li><a href="#"><i class="fa-solid fa-truck"></i><span>Livraisons</span></a></li>
-        </ul>
-    </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active">
+                <i class="fa-solid fa-chart-pie"></i> Dashboard
+            </a>
+            <a href="clients.html" class="nav-item">
+                <i class="fa-solid fa-users"></i> Clients
+            </a>
+            <a href="produits.php" class="nav-item">
+                <i class="fa-solid fa-box-open"></i> Produits
+            </a>
+            <a href="commande.html" class="nav-item">
+                <i class="fa-solid fa-cart-shopping"></i> Commandes
+            </a>
+            <a href="livraisons.php" class="nav-item">
+                <i class="fa-solid fa-truck"></i> Livraisons
+            </a>
+            <a href="chatbot.html" class="nav-item">
+                <i class="fa-solid fa-robot"></i> Chatbot IA
+            </a>
+            <a href="logout.php" class="nav-item nav-logout">
+                <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+            </a>
+        </nav>
+    </aside>
 
-    <main class="main">
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
 
-        <div class="page-header">
-            <div>
-                <h1>Tableau de bord</h1>
-                <p id="dashboardDate"></p>
+        <div class="topbar">
+            <div class="user-profile">
+                <div class="user-avatar">AM</div>
+                <h5>Admin</h5>
             </div>
         </div>
 
-        <div class="cards-dashboard-grid">
-            
+        <header class="page-header">
+            <div>
+                <h1>Tableau de bord</h1>
+                <p class="page-subtitle" id="dashboardDate"></p>
+            </div>
+        </header>
+
+        <!-- ===== KPI CARDS ===== -->
+        <section class="cards-dashboard-grid">
+
             <div class="card-kpi">
                 <div class="card-kpi-info">
                     <span class="card-kpi-title">Clients Actifs</span>
@@ -45,7 +70,7 @@
                     <span class="card-kpi-sub" id="subClients"></span>
                 </div>
                 <div class="card-kpi-side">
-                    <div class="card-kpi-icon icon-blue">
+                    <div class="card-kpi-icon icon-clients">
                         <i class="fa-solid fa-users"></i>
                     </div>
                     <span class="trend-badge" id="trendClients"></span>
@@ -59,7 +84,7 @@
                     <span class="card-kpi-sub" id="subCommandes"></span>
                 </div>
                 <div class="card-kpi-side">
-                    <div class="card-kpi-icon icon-purple">
+                    <div class="card-kpi-icon icon-commandes">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
                     <span class="trend-badge" id="trendCommandes"></span>
@@ -73,7 +98,7 @@
                     <span class="card-kpi-sub" id="subLivraisons"></span>
                 </div>
                 <div class="card-kpi-side">
-                    <div class="card-kpi-icon icon-orange">
+                    <div class="card-kpi-icon icon-livraisons">
                         <i class="fa-solid fa-truck"></i>
                     </div>
                     <span class="trend-badge" id="trendLivraisons"></span>
@@ -87,39 +112,44 @@
                     <span class="card-kpi-sub" id="subStock"></span>
                 </div>
                 <div class="card-kpi-side">
-                    <div class="card-kpi-icon icon-green">
+                    <div class="card-kpi-icon icon-stock">
                         <i class="fa-solid fa-box"></i>
                     </div>
                     <span class="trend-badge" id="trendStock"></span>
                 </div>
             </div>
 
-        </div>
+        </section>
 
-        <div class="table-box card-table-layout">
-            
-            <div class="table-header flex-header">
+        <!-- ===== COMMANDES RÉCENTES ===== -->
+        <section class="table-card">
+            <div class="table-card-header">
                 <h2>Commandes récentes</h2>
-                <a href="#" class="btn-view-all">Voir tout</a>
+                <a href="commande.html" class="btn-view-all">Voir tout</a>
             </div>
 
-            <table class="table-dashboard">
-                <thead>
-                    <tr>
-                        <th>Référence</th>
-                        <th>Client</th>
-                        <th>Produit</th>
-                        <th>Qté</th>
-                        <th>Statut</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody id="commandesTableBody">
+            <div class="table-scroll">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Référence</th>
+                            <th>Client</th>
+                            <th>Produit</th>
+                            <th>Qté</th>
+                            <th>Statut</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="commandesTableBody">
+                        <!-- Rempli dynamiquement par dashboard.js -->
                     </tbody>
-            </table>
-        </div>
+                </table>
+            </div>
+        </section>
 
     </main>
 
+    <script src="dashboard.js"></script>
 </body>
+
 </html>
