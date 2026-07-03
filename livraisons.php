@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="sidebar_header.css">
     <link rel="stylesheet" href="livraisons.css">
 </head>
+
 <body>
 
     <aside class="sidebar">
@@ -103,7 +105,8 @@
                             <td>42</td>
                             <td><span class="badge badge-warning">En cours</span></td>
                             <td class="action-btns">
-                                <button class="btn-icon btn-edit" onclick="openModal('edit', 'LIV-2026-045', '42', 'En cours')">
+                                <button class="btn-icon btn-edit"
+                                    onclick="openModal('edit', 'LIV-2026-045', '42', 'En cours')">
                                     <i class="fa-solid fa-pen"></i>
                                 </button>
                                 <button class="btn-icon btn-delete" onclick="openDeleteModal('LIV-2026-045')">
@@ -125,12 +128,13 @@
             </div>
             <form class="modal-body" onsubmit="event.preventDefault(); closeModal();">
                 <input type="hidden" id="deliveryId" name="id">
-                
+
                 <div class="form-group">
                     <label>ID Commande</label>
-                    <input type="text" id="formIdCommande" name="id_commande" class="form-control" placeholder="Ex: 42" required>
+                    <input type="text" id="formIdCommande" name="id_commande" class="form-control" placeholder="Ex: 42"
+                        required>
                 </div>
-                
+
                 <div class="form-group">
                     <label>Statut</label>
                     <select id="formStatus" name="status" class="form-control" required>
@@ -171,18 +175,18 @@
             const modal = document.getElementById('deliveryModal');
             const title = document.getElementById('modalTitle');
             const submitBtn = document.getElementById('formSubmitBtn');
-            
+
             if (mode === 'edit') {
                 title.innerText = "Modifier la Livraison";
                 submitBtn.innerText = "Enregistrer les modifications";
-                
+
                 document.getElementById('deliveryId').value = id;
                 document.getElementById('formIdCommande').value = idCommande; // Remplit l'input texte
                 document.getElementById('formStatus').value = status;
             } else {
                 title.innerText = "Nouvelle Livraison";
                 submitBtn.innerText = "Valider";
-                
+
                 document.getElementById('deliveryId').value = '';
                 document.getElementById('formIdCommande').value = ''; // Vide l'input texte
                 document.getElementById('formStatus').selectedIndex = 0;
@@ -204,4 +208,5 @@
         }
     </script>
 </body>
+
 </html>
