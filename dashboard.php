@@ -20,11 +20,7 @@
             <span>PalmFox</span>
         </div>
         <nav class="sidebar-nav">
-<<<<<<< HEAD
-            <a href="dashboard.php" class="nav-item active">
-=======
             <a href="#" class="nav-item active">
->>>>>>> 45e99e6c82ceddbec93d0519d169f8f0b793095c
                 <i class="fa-solid fa-chart-pie"></i> Dashboard
             </a>
             <a href="clients.php" class="nav-item">
