@@ -42,7 +42,6 @@
             </a>
         </nav>
     </aside>
-
     <!-- MAIN CONTENT-->
     <main class="main-content">
 

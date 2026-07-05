@@ -366,7 +366,6 @@ document.addEventListener("DOMContentLoaded", function () {
       closeFilterModal();
     }
   });
-
   /*Initialisation*/
 
   renderClients();

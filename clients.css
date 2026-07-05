@@ -499,7 +499,6 @@
     align-items: flex-start;
   }
 }
-
 @media (max-width: 560px) {
   .stats-grid {
     grid-template-columns: 1fr;

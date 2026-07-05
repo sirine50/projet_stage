@@ -221,7 +221,6 @@
 .status-encours { background: #fdf1c8; color: #a67c00; }
 .status-livree   { background: #d9f3e3; color: #1e824c; }
 .status-annulee  { background: #fbdada; color: #c62828; }
-
 /*RESPONSIVE*/
 @media (max-width: 1100px) {
     .cards-dashboard-grid { grid-template-columns: repeat(2, 1fr); }

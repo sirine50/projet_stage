@@ -6,7 +6,6 @@ body {
     margin: 0;
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
-
 /*SIDEBAR*/
 .sidebar {
     position: fixed;
@@ -20,7 +19,6 @@ body {
     flex-direction: column;
     z-index: 100;
 }
-
 .sidebar-logo {
     display: flex;
     align-items: center;
