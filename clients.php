@@ -251,8 +251,6 @@
 
         </div>
     </div>
-
     <script src="clients.js"></script>
 </body>
-
 </html>

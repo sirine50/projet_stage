@@ -99,7 +99,6 @@
                     <span class="trend-badge"></span>
                 </div>
             </div>
-
             <!-- ===== Livraisons ===== -->
             <div class="card-kpi">
                 <div class="card-kpi-info">
@@ -114,7 +113,6 @@
                     <span class="trend-badge"></span>
                 </div>
             </div>
-
             <!-- ===== Stock ===== -->
             <div class="card-kpi">
                 <div class="card-kpi-info">
@@ -131,7 +129,6 @@
             </div>
 
         </section>
-
         <!-- ===== COMMANDES RÉCENTES ===== -->
         <section class="table-card">
             <div class="table-card-header">
@@ -163,7 +160,6 @@
         </section>
 
     </main>
-
     <script src="dashboard.js"></script>
 </body>
 

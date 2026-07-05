@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeFilter = document.getElementById("closeFilter");
   const cancelFilter = document.getElementById("cancelFilter");
   const applyFilterBtn = document.getElementById("applyFilterBtn");
-
   const clientIdInput = document.getElementById("clientId");
   const nomInput = document.getElementById("nom");
   const telephoneInput = document.getElementById("telephone");
@@ -19,20 +18,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const commentaireInput = document.getElementById("commentaire");
   const modePaiementInput = document.getElementById("modePaiement");
   const conditionPaiementInput = document.getElementById("conditionPaiement");
-
   const contactsContainer = document.getElementById("contactsContainer");
   const btnAddContact = document.getElementById("btnAddContact");
-
   const tableBody = document.getElementById("clientsTableBody");
   const emptyState = document.getElementById("emptyState");
   const searchInput = document.getElementById("searchInput");
   const btnFilter = document.getElementById("btnFilter");
-
   const cardClients = document.getElementById("clients");
   const cardActifs = document.getElementById("actifs");
   const cardInactifs = document.getElementById("inactifs");
   const cardContacts = document.getElementById("contacts");
-
   const STORAGE_KEY = "erp_clients";
 
   /*Données*/
