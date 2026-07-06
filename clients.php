@@ -252,4 +252,31 @@
     </div>
     <script src="clients.js"></script>
 </body>
+<!-- ================= CONFIRMATION SUPPRESSION ================= -->
+<div class="modal-overlay" id="deleteModal">
+    <div class="delete-modal">
+
+        <div class="delete-icon">
+            <i class="fa-solid fa-exclamation"></i>
+        </div>
+
+        <h2>Confirmer la suppression</h2>
+
+        <p>
+            Voulez-vous vraiment supprimer le client :
+            <strong id="deleteClientName"></strong> ?
+        </p>
+
+        <div class="delete-actions">
+            <button id="cancelDelete" class="btn-cancel-delete">
+                Annuler
+            </button>
+
+            <button id="confirmDelete" class="btn-confirm-delete">
+                Oui, supprimer
+            </button>
+        </div>
+
+    </div>
+</div>
 </html>

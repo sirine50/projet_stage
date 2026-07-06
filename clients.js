@@ -213,19 +213,55 @@ document.addEventListener("DOMContentLoaded", function () {
     openModal();
   }
 
-  function deleteClient(id) {
-    const client = clients.find((c) => c.id === id);
-    if (!client) return;
+  const deleteModal = document.getElementById("deleteModal");
+const deleteClientName = document.getElementById("deleteClientName");
+const cancelDelete = document.getElementById("cancelDelete");
+const confirmDelete = document.getElementById("confirmDelete");
 
-    const confirmed = confirm(
-      `Supprimer le client "${client.nom}" ? Cette action est irréversible.`,
-    );
-    if (!confirmed) return;
+let clientToDelete = null;
 
-    clients = clients.filter((c) => c.id !== id);
-    saveClients(clients);
-    renderClients();
-  }
+function deleteClient(id) {
+
+    const client = clients.find(c => c.id === id);
+
+    if(!client) return;
+
+    clientToDelete = id;
+
+    deleteClientName.textContent = client.nom;
+
+    deleteModal.classList.add("active");
+}
+
+cancelDelete.addEventListener("click", () => {
+    deleteModal.classList.remove("active");
+    clientToDelete = null;
+});
+
+confirmDelete.addEventListener("click", () => {
+
+    if(clientToDelete){
+
+        clients = clients.filter(c => c.id !== clientToDelete);
+
+        saveClients(clients);
+
+        renderClients();
+    }
+
+    deleteModal.classList.remove("active");
+    clientToDelete = null;
+});
+
+window.addEventListener("click", function(e){
+
+    if(e.target===deleteModal){
+
+        deleteModal.classList.remove("active");
+        clientToDelete=null;
+    }
+
+});
 
   /*Affichage / Rendu du tableau*/
 
