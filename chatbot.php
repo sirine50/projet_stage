@@ -36,7 +36,7 @@
 
                 <a href="clients.php" class="nav-item">
 
-                    <a href="clients.php" class="nav-item active">
+                    <a href="clients.php" class="nav-item">
 
                         <i class="fa-solid fa-users"></i> Clients
                     </a>
@@ -50,11 +50,9 @@
                         <i class="fa-solid fa-truck"></i> Livraisons
                     </a>
 
-                    <a href="chatbot.php" class="nav-item active">
-
-                        <a href="chatbot.php" class="nav-item">
-
-                            <i class="fa-solid fa-robot"></i> Chatbot IA
+                    <a href="chatbot.php " class="nav-item active">
+                        
+                            <i class="fa-solid fa-robot"></i>Chatbot IA
                         </a>
                         <a href="logout.php" class="nav-item nav-logout">
                             <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
