@@ -33,6 +33,7 @@ let commandes = [
 
 let nextCmdNumber = commandes.length + 1;
 let editingId = null;
+let pendingDeleteId = null;
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -262,6 +263,30 @@ function handleSubmit(e) {
   closeModal();
 }
 
+function openDeleteModal(id) {
+  pendingDeleteId = id;
+  $("#deleteCmdId").textContent = id;
+  $("#deleteModal").classList.add("open");
+}
+
+function closeDeleteModal() {
+  $("#deleteModal").classList.remove("open");
+  pendingDeleteId = null;
+}
+
+function confirmDelete() {
+  if (!pendingDeleteId) return;
+  const cmd = commandes.find((c) => c.id === pendingDeleteId);
+  if (cmd) {
+    restockIfNeeded(cmd);
+    commandes = commandes.filter((c) => c.id !== pendingDeleteId);
+    fillSelects();
+    renderTable($("#searchInput").value);
+    renderStats();
+  }
+  closeDeleteModal();
+}
+
 function handleTableClick(e) {
   const btn = e.target.closest("button[data-action]");
   if (!btn) return;
@@ -273,17 +298,7 @@ function handleTableClick(e) {
   if (btn.dataset.action === "edit") {
     openModal("edit", cmd);
   } else if (btn.dataset.action === "delete") {
-    if (
-      confirm(
-        `Supprimer la commande ${id} ? La quantité sera remise en stock si nécessaire.`,
-      )
-    ) {
-      restockIfNeeded(cmd);
-      commandes = commandes.filter((c) => c.id !== id);
-      fillSelects();
-      renderTable($("#searchInput").value);
-      renderStats();
-    }
+    openDeleteModal(id);
   }
 }
 
@@ -306,4 +321,10 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#searchInput").addEventListener("input", (e) =>
     renderTable(e.target.value),
   );
+
+  $("#btnCancelDelete").addEventListener("click", closeDeleteModal);
+  $("#btnConfirmDelete").addEventListener("click", confirmDelete);
+  $("#deleteModal").addEventListener("click", (e) => {
+    if (e.target.id === "deleteModal") closeDeleteModal();
+  });
 });

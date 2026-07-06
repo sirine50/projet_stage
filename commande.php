@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -175,8 +176,24 @@
             </form>
         </div>
     </div>
-
-    <script src="commade.js"></script>
+<!--MODAL: CONFIRMATION SUPPRESSION-->
+<div class="modal-overlay" id="deleteModal">
+    <div class="modal-box modal-box-sm">
+        <div class="delete-box">
+            <i class="fa-solid fa-triangle-exclamation delete-icon"></i>
+            <h3>Confirmer la suppression</h3>
+            <p class="delete-text">
+                Voulez-vous vraiment supprimer la commande :
+                <br><strong id="deleteCmdId"></strong> ?
+            </p>
+            <div class="delete-actions">
+                <button class="btn-secondary" id="btnCancelDelete">Annuler</button>
+                <button class="btn-danger-modal" id="btnConfirmDelete">Oui, supprimer</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="commande.js"></script>
 </body>
 
 </html>
