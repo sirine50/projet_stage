@@ -12,9 +12,46 @@
     min-height: 100vh;
 }
 
+/* ---------- TOPBAR (profil admin) ---------- */
+.topbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+}
 
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 10px;
+    transition: background .15s ease;
+}
+.user-profile:hover { background: #eee7dd; }
 
-/*HEADER*/
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #9a6633 0%, #1c1410 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-profile h5 {
+    margin: 0;
+    font-size: 14px;
+    color: #1e2432;
+    font-weight: 600;
+}
+
+/* ---------- HEADER ---------- */
 .page-header {
     display: flex;
     justify-content: space-between;
@@ -124,7 +161,7 @@
     margin-top: 2px;
 }
 
-/*TABLE CARD*/
+/* ---------- TABLE CARD ---------- */
 .table-card {
     background: #fff;
     border-radius: 14px;
@@ -203,7 +240,7 @@
 .badge-annulee   { background: #fbdada; color: #c62828; }
 .badge-livree    { background: #d9f3e3; color: #1e824c; }
 
-/*ACTION BUTTONS*/
+/* ---------- ACTION BUTTONS ---------- */
 .action-btn {
     border: none;
     background: #eef0f4;
@@ -223,7 +260,7 @@
     padding: 30px;
 }
 
-/*MODAL*/
+/* ---------- MODAL ---------- */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -321,3 +358,25 @@
     .stats-grid { grid-template-columns: 1fr; }
     .search-box { width: 160px; }
 }
+
+/* ---------- MODAL: CONFIRMATION SUPPRESSION ---------- */
+.modal-box-sm { max-width: 400px; padding: 30px; text-align: center; }
+
+.delete-box { display: flex; flex-direction: column; align-items: center; }
+.delete-icon { color: #c62828; font-size: 46px; margin-bottom: 14px; }
+.delete-text { color: #8a94a6; margin: 10px 0 22px; }
+.delete-text strong { color: #1e2432; }
+.delete-actions { display: flex; justify-content: center; gap: 14px; }
+
+.btn-danger-modal {
+    background: #c62828;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background .15s ease;
+}
+.btn-danger-modal:hover { background: #a81f1f; }
