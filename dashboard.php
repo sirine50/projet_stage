@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+   
     <!-- ===== SIDEBAR (identique à commande.html / clients.html / produits.html) ===== -->
     <aside class="sidebar">
         <div class="sidebar-logo">
@@ -45,21 +45,21 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <main class="main-content">
-
         <div class="topbar">
-            <div class="user-profile">
+            <a href="admin.php" class="user-profile">
                 <div class="user-avatar">AM</div>
                 <h5>Admin</h5>
-            </div>
+            </a>
         </div>
 
+        
         <header class="page-header">
             <div>
                 <h1>Tableau de bord</h1>
                 <p class="page-subtitle" id="dashboardDate"></p>
             </div>
         </header>
-
+ 
         <!-- ===== KPI CARDS ===== -->
         <section class="cards-dashboard-grid">
 
@@ -92,7 +92,6 @@
                     <span class="trend-badge"></span>
                 </div>
             </div>
-
             <!-- ===== Livraisons ===== -->
             <div class="card-kpi">
                 <div class="card-kpi-info">
@@ -107,7 +106,6 @@
                     <span class="trend-badge"></span>
                 </div>
             </div>
-
             <!-- ===== Stock ===== -->
             <div class="card-kpi">
                 <div class="card-kpi-info">
@@ -124,7 +122,6 @@
             </div>
 
         </section>
-
         <!-- ===== COMMANDES RÉCENTES ===== -->
         <section class="table-card">
             <div class="table-card-header">
@@ -156,8 +153,6 @@
         </section>
 
     </main>
-
     <script src="dashboard.js"></script>
 </body>
-
 </html>

@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("subStock").textContent = "Valorisation actuelle";
     document.getElementById("trendStock").className = "trend-badge trend-up";
     document.getElementById("trendStock").innerHTML = '<i class="fa-solid fa-arrow-trend-up"></i> 5%';
-
     //COMMANDES RÉCENTES
     const commandesRecentes = [
         { ref: "CMD-2026-089", client: "Alpha Industries", produit: "Routeur Pro v2", qte: 15, statut: "encours", statutLabel: "En cours", date: "28 juin 2026" },

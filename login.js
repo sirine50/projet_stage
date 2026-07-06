@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Ici : envoyer { user, password } au backend PHP (login.php)
         // pour vérifier les identifiants en base de données.
         // Pour l'instant, connexion simulée : redirection directe.
-        window.location.href = "dashboard.html";
+        window.location.href = "dashboard.php";
     });
 
 });

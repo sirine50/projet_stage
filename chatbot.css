@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ===========================================================================
    chatbot.css — Interface moderne avec Double Sidebar (Style ChatGPT)
    S'aligne fidèlement sur la charte graphique de PalmFox.
@@ -297,4 +298,345 @@
     .main-content.chat-layout { margin-left: 72px; }
     .chat-history-sidebar { position: absolute; z-index: 50; height: calc(100vh - 60px); top: 60px; }
     .chat-history-sidebar.active-mobile { width: 260px; }
+=======
+/* ==========================
+   CHATBOT PALMFOX
+========================== */
+
+#chatbot-container{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    z-index:9999;
+    font-family:'Poppins',sans-serif;
+}
+
+/* Bouton flottant */
+
+#chat-toggle{
+    width:65px;
+    height:65px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    background:linear-gradient(135deg,#8b5e34,#5b3416);
+    color:#fff;
+    font-size:26px;
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+    transition:.3s;
+}
+
+#chat-toggle:hover{
+    transform:scale(1.08);
+}
+
+/* ====================== */
+
+#chat-window{
+
+    position:absolute;
+    bottom:85px;
+    right:0;
+
+    width:360px;
+    height:520px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    display:none;
+
+    flex-direction:column;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+    animation:popup .35s ease;
+}
+
+#chat-window.show{
+    display:flex;
+}
+
+@keyframes popup{
+
+from{
+
+transform:translateY(30px);
+
+opacity:0;
+
+}
+
+to{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+}
+
+/* ====================== */
+
+.chat-header{
+
+background:linear-gradient(135deg,#222738,#1a2030);
+
+color:white;
+
+padding:16px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+.chat-header-info{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+.chat-avatar{
+
+width:45px;
+
+height:45px;
+
+border-radius:50%;
+
+background:white;
+
+color:#8b5e34;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:22px;
+
+}
+
+.chat-header h3{
+
+margin:0;
+
+font-size:17px;
+
+}
+
+.chat-header span{
+
+font-size:12px;
+
+opacity:.8;
+
+}
+
+#close-chat{
+
+background:none;
+
+border:none;
+
+color:white;
+
+font-size:23px;
+
+cursor:pointer;
+
+}
+
+/* ====================== */
+
+.chat-body{
+
+flex:1;
+
+padding:15px;
+
+background:#f4f6fb;
+
+overflow-y:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+}
+
+/* Scroll */
+
+.chat-body::-webkit-scrollbar{
+
+width:6px;
+
+}
+
+.chat-body::-webkit-scrollbar-thumb{
+
+background:#ccc;
+
+border-radius:50px;
+
+}
+
+/* ====================== */
+
+.bot-message{
+
+background:white;
+
+padding:12px 15px;
+
+border-radius:16px 16px 16px 4px;
+
+max-width:85%;
+
+line-height:1.6;
+
+font-size:14px;
+
+box-shadow:0 3px 8px rgba(0,0,0,.08);
+
+}
+
+.user-message{
+
+background:#8b5e34;
+
+color:white;
+
+padding:12px 15px;
+
+border-radius:16px 16px 4px 16px;
+
+max-width:85%;
+
+align-self:flex-end;
+
+line-height:1.6;
+
+font-size:14px;
+
+}
+
+/* ====================== */
+
+.chat-footer{
+
+display:flex;
+
+padding:12px;
+
+background:white;
+
+border-top:1px solid #eee;
+
+}
+
+.chat-footer input{
+
+flex:1;
+
+padding:12px;
+
+border-radius:30px;
+
+border:1px solid #ddd;
+
+outline:none;
+
+font-size:14px;
+
+}
+
+.chat-footer input:focus{
+
+border-color:#8b5e34;
+
+}
+
+.chat-footer button{
+
+margin-left:10px;
+
+width:48px;
+
+height:48px;
+
+border:none;
+
+border-radius:50%;
+
+cursor:pointer;
+
+background:#8b5e34;
+
+color:white;
+
+font-size:18px;
+
+transition:.3s;
+
+}
+
+.chat-footer button:hover{
+
+background:#6d4728;
+
+transform:scale(1.05);
+
+}
+
+/* ====================== */
+
+.bot-message ul{
+
+padding-left:18px;
+
+margin-top:8px;
+
+margin-bottom:0;
+
+}
+
+.bot-message li{
+
+margin-bottom:4px;
+
+}
+
+/* ====================== */
+
+@media(max-width:768px){
+
+#chat-window{
+
+width:95vw;
+
+height:80vh;
+
+right:0;
+
+bottom:85px;
+
+}
+
+>>>>>>> 49a799569b5e7beb8462e2f16f8a63c2a634f7d7
 }

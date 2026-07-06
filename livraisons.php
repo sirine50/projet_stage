@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <aside class="sidebar">
         <div class="sidebar-logo">
             <i class="fa-solid fa-cubes"></i>
@@ -41,16 +40,17 @@
             </a>
         </nav>
     </aside>
+    
+
 
     <main class="main-content">
 
         <div class="topbar">
-            <div class="user-profile">
+            <a href="admin.php" class="user-profile">
                 <div class="user-avatar">AM</div>
                 <h5>Admin</h5>
-            </div>
+            </a>
         </div>
-
         <header class="page-header">
             <div>
                 <h1>Livraisons</h1>
