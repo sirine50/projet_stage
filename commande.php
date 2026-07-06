@@ -37,7 +37,7 @@
             <a href="chatbot.php" class="nav-item">
                 <i class="fa-solid fa-robot"></i> Chatbot IA
             </a>
-            <a href="logout.php" class="nav-item nav-logout" onclick="return confirm('Voulez-vous vraiment vous déconnecter ?');">
+            <a href="logout.php" class="nav-item nav-logout">
                 <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
             </a>
         </nav>
@@ -177,22 +177,23 @@
             </form>
         </div>
     </div>
-
-    <!-- ===== MODAL: CONFIRMER SUPPRESSION ===== -->
-    <div class="modal-overlay" id="deleteModal">
-        <div class="modal-box modal-box-sm delete-box">
-            <div class="delete-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+<!--MODAL: CONFIRMATION SUPPRESSION-->
+<div class="modal-overlay" id="deleteModal">
+    <div class="modal-box modal-box-sm">
+        <div class="delete-box">
+            <i class="fa-solid fa-triangle-exclamation delete-icon"></i>
             <h3>Confirmer la suppression</h3>
             <p class="delete-text">
-                Voulez-vous vraiment supprimer la commande : <br><strong id="deleteCommandeName">[ID]</strong> ?
+                Voulez-vous vraiment supprimer la commande :
+                <br><strong id="deleteCmdId"></strong> ?
             </p>
             <div class="delete-actions">
-                <button type="button" class="btn-secondary" id="btnCancelDelete">Annuler</button>
-                <button type="button" class="btn-danger-modal" id="btnConfirmDelete">Oui, supprimer</button>
+                <button class="btn-secondary" id="btnCancelDelete">Annuler</button>
+                <button class="btn-danger-modal" id="btnConfirmDelete">Oui, supprimer</button>
             </div>
         </div>
     </div>
-
+</div>
     <script src="commande.js"></script>
 </body>
 
