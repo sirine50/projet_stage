@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 document.addEventListener('DOMContentLoaded', () => {
     const toggleHistoryBtn = document.getElementById('toggleHistoryBtn');
     const chatHistorySidebar = document.getElementById('chatHistorySidebar');
@@ -12,10 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-=======
-// ===============================
+
 // CHATBOT PALMFOX
-// ===============================
+
 
 const chatToggle = document.getElementById("chat-toggle");
 const chatWindow = document.getElementById("chat-window");
@@ -25,9 +24,9 @@ const sendBtn = document.getElementById("send-btn");
 const userInput = document.getElementById("user-input");
 const chatBody = document.getElementById("chat-body");
 
-// ===============================
+
 // Ouvrir / Fermer
-// ===============================
+
 
 chatToggle.addEventListener("click", () => {
     chatWindow.classList.add("show");
@@ -39,9 +38,9 @@ closeChat.addEventListener("click", () => {
     localStorage.setItem("chatOpen", "false");
 });
 
-// ===============================
+
 // Garder l'état après changement de page
-// ===============================
+
 
 window.addEventListener("load", () => {
 
@@ -58,9 +57,9 @@ window.addEventListener("load", () => {
 
 });
 
-// ===============================
+
 // Envoyer message
-// ===============================
+
 
 sendBtn.addEventListener("click", sendMessage);
 
@@ -72,7 +71,7 @@ userInput.addEventListener("keypress", function(e){
 
 });
 
-// ===============================
+
 
 function sendMessage(){
 
@@ -92,7 +91,7 @@ function sendMessage(){
 
 }
 
-// ===============================
+
 
 function addMessage(message,type){
 
@@ -110,9 +109,9 @@ function addMessage(message,type){
 
 }
 
-// ===============================
+
 // Réponses automatiques
-// ===============================
+
 
 function getBotResponse(message){
 
@@ -163,9 +162,9 @@ function getBotResponse(message){
     return "🤖 Désolé, je n'ai pas compris votre question.";
 }
 
-// ===============================
+
 // Vider historique (facultatif)
-// ===============================
+
 
 function clearChat(){
 
@@ -180,4 +179,4 @@ function clearChat(){
     `;
 
 }
->>>>>>> 49a799569b5e7beb8462e2f16f8a63c2a634f7d7
+
