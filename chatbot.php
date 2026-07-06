@@ -35,9 +35,6 @@
                 </a>
 
                 <a href="clients.php" class="nav-item">
-
-                    <a href="clients.php" class="nav-item">
-
                         <i class="fa-solid fa-users"></i> Clients
                     </a>
                     <a href="produits.php" class="nav-item">
