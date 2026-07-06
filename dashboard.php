@@ -11,14 +11,7 @@
 </head>
 
 <body>
-    <div class="topbar">
-            <a href="admin.php" class="user-profile">
-                <div class="user-avatar">AM</div>
-                <h5>Admin</h5>
-            </a>
-        </div>
-
-
+   
     <!-- ===== SIDEBAR (identique à commande.html / clients.html / produits.html) ===== -->
     <aside class="sidebar">
         <div class="sidebar-logo">
@@ -52,21 +45,21 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <main class="main-content">
-
         <div class="topbar">
-            <div class="user-profile">
+            <a href="admin.php" class="user-profile">
                 <div class="user-avatar">AM</div>
                 <h5>Admin</h5>
-            </div>
+            </a>
         </div>
 
+        
         <header class="page-header">
             <div>
                 <h1>Tableau de bord</h1>
                 <p class="page-subtitle" id="dashboardDate"></p>
             </div>
         </header>
-
+ 
         <!-- ===== KPI CARDS ===== -->
         <section class="cards-dashboard-grid">
 
