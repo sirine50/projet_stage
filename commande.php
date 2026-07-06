@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <aside class="sidebar">
         <div class="sidebar-logo">
             <i class="fa-solid fa-cubes"></i>
