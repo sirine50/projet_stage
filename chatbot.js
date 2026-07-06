@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     const toggleHistoryBtn = document.getElementById('toggleHistoryBtn');
     const chatHistorySidebar = document.getElementById('chatHistorySidebar');
@@ -179,4 +178,3 @@ function clearChat(){
     `;
 
 }
-
