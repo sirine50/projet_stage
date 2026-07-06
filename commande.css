@@ -1,9 +1,3 @@
-/* ===========================================================
-   commande.css — styles propres à la page Gestion des Commandes
-   (suppose que sidebar_header.css définit déjà .sidebar / .main-content
-   et que main_components.css définit .btn-primary / .btn-secondary)
-   =========================================================== */
-
 * { box-sizing: border-box; }
 
 .main-content {
